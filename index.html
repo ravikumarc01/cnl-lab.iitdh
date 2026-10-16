@@ -200,6 +200,18 @@ details.more[open] summary::after{transform:rotate(180deg)}
 @media (hover:none){.pc .im .ov{display:none}}
 .pc .desc{display:none}
 @media (hover:none){.pc .desc{display:block;font-size:.8rem;color:var(--muted);margin-top:6px}}
+/* open PhD topics */
+.topics{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.tp{position:relative;padding:24px 18px 22px;border-radius:20px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;transition:transform .3s;overflow:hidden}
+.tp:hover{transform:translateY(-6px)}
+.tp::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad)}
+.tp i{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.15rem}
+.tp span{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--crim)}
+.tp h4{font-family:var(--f-head);font-size:.98rem;line-height:1.35}
+.topics-note{text-align:center;color:var(--muted);font-size:.92rem;margin:-14px auto 26px;max-width:620px}
+@media (max-width:1100px){.topics{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.topics{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.topics{grid-template-columns:1fr}}
 .join{margin-top:50px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:30px 34px;border-radius:24px;background:var(--grad);color:#fff;box-shadow:0 18px 40px rgba(30,58,138,.28)}
 .join h3{font-family:var(--f-head);font-size:1.4rem}
 .join p{opacity:.9;font-size:.92rem}
@@ -552,6 +564,15 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <article class="pc reveal"><div class="im"><img src="assets/img/vijay.jpg" alt="Anugu Vijay Reddy"><div class="ov">Population balance simulation for monodisperse magnetite.</div></div><div class="bd"><h3>Anugu Vijay Reddy</h3><p class="desc">Population balance simulation for monodisperse magnetite.</p></div></article>
       <article class="pc reveal"><div class="im"><img src="assets/img/aryawardhan.jpg" alt="Aryawardhansingh Y. Solanki"><div class="ov">Molecular dynamics of tirzepatide analogues.</div></div><div class="bd"><h3>Aryawardhansingh Y. Solanki</h3><p class="desc">Molecular dynamics of tirzepatide analogues.</p></div></article>
       <article class="pc reveal"><div class="im"><img src="assets/img/saurabh.jpg" alt="Saurabh Kumar Dhavaj"><div class="ov">Docking and atomistic simulation of tirzepatide variants.</div></div><div class="bd"><h3>Saurabh Kumar Dhavaj</h3><p class="desc">Docking and atomistic simulation of tirzepatide variants.</p></div></article>
+    </div>
+    <h3 class="subt">Open research topics</h3>
+    <p class="topics-note">PhD topics available for upcoming research scholars.</p>
+    <div class="topics">
+      <article class="tp reveal"><i class="fas fa-magnet"></i><span>Topic 01</span><h4>Magnetic nanoparticles for drug delivery</h4></article>
+      <article class="tp reveal"><i class="fas fa-tower-broadcast"></i><span>Topic 02</span><h4>Magneto-dielectric ferrite composites for antenna substrates</h4></article>
+      <article class="tp reveal"><i class="fas fa-arrows-rotate"></i><span>Topic 03</span><h4>Perovskite oxygen carriers for chemical looping</h4></article>
+      <article class="tp reveal"><i class="fas fa-chart-area"></i><span>Topic 04</span><h4>Population balance and colloidal modelling of nanoparticle formation</h4></article>
+      <article class="tp reveal"><i class="fas fa-smog"></i><span>Topic 05</span><h4>Advanced nanomaterials for CO₂ capture and conversion</h4></article>
     </div>
     <div class="join reveal"><div><h3>Interested in nanoparticles? Come work with us.</h3><p>PhD positions are open. Apply through IIT Dharwad admissions.</p></div><a class="btn light" href="https://www.iitdh.ac.in/phd" target="_blank" rel="noopener"><i class="fas fa-paper-plane"></i>Apply now</a></div>
   </div>
