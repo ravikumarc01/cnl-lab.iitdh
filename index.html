@@ -214,7 +214,7 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .subh h3{font-family:var(--f-head);font-size:1.35rem;display:flex;align-items:center;gap:12px}
 .subh h3 i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1rem}
 .subh small{color:var(--muted);font-size:.82rem}
-.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:64px}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .figs button{all:unset;cursor:zoom-in;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s}
 .figs button:hover{transform:translateY(-6px)}
 .figs button:focus-visible{outline:3px solid var(--gold)}
@@ -567,8 +567,6 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <div><b class="gt" data-n="15">15</b><span>h-index</span></div>
       <div><b class="gt" data-n="16">16</b><span>i10-index</span></div>
     </div>
-    <div class="subh reveal"><h3><i class="fas fa-image"></i>Figures from our papers</h3><small>Click to enlarge</small></div>
-    <div class="figs" id="figs"></div>
     <div class="subh"><h3><i class="fas fa-file-lines"></i>All publications</h3></div>
     <div class="ptools">
       <div class="s"><i class="fas fa-search"></i><input id="q" type="search" placeholder="Search title, author, journal" aria-label="Search publications"></div>
@@ -576,6 +574,8 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <span class="c" id="cnt"></span>
     </div>
     <div class="pubs" id="pubs"></div>
+    <div class="subh reveal" style="margin-top:64px"><h3><i class="fas fa-image"></i>Figures from our papers</h3><small>Click to enlarge</small></div>
+    <div class="figs" id="figs"></div>
   </div>
 </section>
 
