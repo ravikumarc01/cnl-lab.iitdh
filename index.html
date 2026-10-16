@@ -102,6 +102,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .scroll::before{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;border-radius:2px;background:#fff;transform:translateX(-50%);animation:wheel 1.8s infinite}
 @keyframes wheel{to{transform:translate(-50%,14px);opacity:0}}
 
+/* welcome note */
+.welcome{padding:90px 0 20px}
+.wnote{position:relative;max-width:920px;margin:0 auto;padding:48px 52px 44px;border-radius:28px;background:#fff;box-shadow:0 20px 50px rgba(30,58,138,.12);overflow:hidden}
+.wnote::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(to bottom,#059669,#1e3a8a,#a3162b)}
+.wnote .q{position:absolute;right:34px;top:22px;font-size:4.5rem;line-height:1;opacity:.08;color:var(--navy)}
+.wnote .kick{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crim);margin-bottom:10px}
+.wnote h2{font-family:var(--f-head);font-weight:900;font-size:clamp(1.6rem,3.6vw,2.4rem);margin-bottom:22px}
+.wnote p{color:#33384d;margin-bottom:14px;text-align:justify;hyphens:auto}
+.wnote p:first-of-type{font-size:1.08rem;font-weight:500;color:var(--fg)}
+.wnote .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+@media (max-width:640px){.welcome{padding:60px 0 10px}.wnote{padding:34px 24px 30px}.wnote p{text-align:left}}
+
 /* sections */
 .sec{padding:100px 0}
 .sec.alt{background:var(--grad-soft)}
@@ -460,7 +472,22 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <div><b data-n="1095">1,095</b><span>citations</span></div>
     </div>
   </div>
-  <a class="scroll" href="#about" aria-label="Scroll to About"></a>
+  <a class="scroll" href="#welcome" aria-label="Scroll to welcome note"></a>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome" id="welcome">
+  <div class="wrap">
+    <div class="wnote reveal">
+      <i class="fas fa-quote-right q" aria-hidden="true"></i>
+      <span class="kick">Welcome</span>
+      <h2>Welcome to the <span class="gt">Colloids and Nanomaterials</span> Lab!</h2>
+        <p>Based in the Department of Chemical Engineering at IIT Dharwad, our group brings together interdisciplinary expertise in materials development, nanotechnology, mechanism-driven experimentation, modelling and interface science. We work at the intersection of chemistry, chemical engineering and materials science to understand and engineer matter at the nanoscale for impactful applications in health, energy, catalysis and the environment.</p>
+        <p>Our research integrates fundamental mechanistic studies, advanced simulations and precision-controlled synthesis to accelerate the discovery and design of functional nanomaterials. We investigate how nanoparticles form, evolve and interact, and develop experimentally validated models that bridge molecular-level mechanisms with macroscopic behaviour, so that particle size, shape, structure and surface chemistry can be tailored with precise control. Experiments and computation carry equal weight in our lab: hands-on synthesis and state-of-the-art characterisation test our models, and our models guide the next experiments.</p>
+        <p>A central mission of our group is to frame challenges in nanoscience in ways that preserve the richness of the underlying physics and chemistry while keeping them tractable to modern modelling and experimental methods. We welcome you to explore our work, publications and ongoing projects, and to join us in advancing the science of interfaces, nanostructures and functional materials.</p>
+      <div class="btns"><a class="btn grad" href="#research"><i class="fas fa-atom"></i>Know more about our research</a><a class="btn light" style="border:2px solid var(--rule)" href="#contact"><i class="fas fa-handshake"></i>Collaborate with us</a></div>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
