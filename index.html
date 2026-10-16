@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colloids &amp; Nanomaterials Lab (CNL) | IIT Dharwad</title>
+<meta property="og:title" content="Colloids &amp; Nanomaterials Lab, IIT Dharwad">
+<meta property="og:description" content="Colloids and Nanomaterials Lab (CNL), Department of Chemical Engineering, IIT Dharwad. PI: Prof. C. Ravikumar.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo/cnl-logo-full-white.png">
+<link rel="apple-touch-icon" href="assets/logo/favicon-512.png">
+<meta name="description" content="Colloids and Nanomaterials Lab (CNL), Department of Chemical Engineering, IIT Dharwad. PI: Prof. C. Ravikumar.">
+<link rel="icon" href="assets/logo/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="assets/fa/css/all.min.css">
+<style>
+/* Layout: fixed gradient header, full-screen hero with particles, centred section titles, card grids; colours come from the CNL logo gradient (emerald → navy → crimson) */
+:root{
+  --em:#059669;--navy:#1e3a8a;--crim:#a3162b;--gold:#f5b700;
+  --grad:linear-gradient(120deg,#059669 0%,#1e3a8a 55%,#a3162b 100%);
+  --grad-soft:linear-gradient(135deg,#ecfdf5 0%,#eef2ff 55%,#fff1f2 100%);
+  --bg:#ffffff;--fg:#14172b;--muted:#5b6175;--rule:#e6e8f0;--tint:#f6f7fb;
+  --f-body:"Poppins","Segoe UI",Arial,sans-serif;--f-head:"Montserrat","Poppins",Arial,sans-serif;
+  --wrap:1200px;--shadow:0 12px 34px rgba(30,58,138,.12);
+}
+:root,:root[data-theme="dark"]{color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+h1,h2,h3,h4{margin:0;line-height:1.2;text-wrap:balance}
+p{margin:0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;background:var(--grad);box-shadow:0 6px 28px rgba(20,23,43,.25);animation:slide .5s ease-out}
+.header::after{content:"";position:absolute;inset:0;background:rgba(10,12,30,.12);pointer-events:none}
+@keyframes slide{from{transform:translateY(-100%)}to{transform:none}}
+.navbar{position:relative;z-index:1;display:flex;align-items:center;gap:16px;max-width:1400px;margin:0 auto;padding:10px 28px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0;flex:1}
+.brand .tile{width:62px;height:62px;flex-shrink:0;background:#fff;border-radius:14px;padding:6px;box-shadow:0 5px 15px rgba(0,0,0,.2);animation:pulse 2.4s infinite}
+.brand .tile img{width:100%;height:100%;object-fit:contain;display:block}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.brand b{display:block;font-family:var(--f-head);font-weight:800;font-size:1.25rem;color:#fff;letter-spacing:.3px}
+.brand small{display:block;color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.6px}
+.menu{display:flex;gap:2px}
+.menu a{position:relative;display:flex;align-items:center;gap:7px;padding:9px 11px;border-radius:9px;color:rgba(255,255,255,.92);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.3px;transition:.25s;white-space:nowrap}
+.menu a::before{content:"";position:absolute;left:50%;bottom:2px;width:0;height:3px;border-radius:3px;background:var(--gold);transform:translateX(-50%);transition:width .3s}
+.menu a:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.menu a:hover::before{width:70%}
+.menu a.on{background:#fff;color:var(--navy);box-shadow:0 5px 14px rgba(0,0,0,.18)}
+.menu a.on i{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.burger{display:none;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:1.3rem;width:44px;height:44px;border-radius:10px;cursor:pointer;transition:.3s}
+.burger:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
+@media (max-width:1180px){.menu{display:none}.burger{display:grid;place-items:center}}
+@media (max-width:520px){.navbar{padding:8px 16px}.brand .tile{width:48px;height:48px}.brand b{font-size:1rem}.brand small{font-size:.66rem}}
+
+/* drawer */
+.drawer{position:fixed;top:0;bottom:0;left:-330px;width:310px;max-width:86vw;background:#fff;z-index:300;box-shadow:6px 0 30px rgba(0,0,0,.25);transition:left .3s;display:flex;flex-direction:column}
+.drawer.open{left:0}
+.drawer .dh{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--grad);color:#fff;font-family:var(--f-head);font-weight:800}
+.drawer .dh img{width:40px;height:40px;background:#fff;border-radius:9px;padding:4px;margin-right:10px;vertical-align:middle}
+.drawer .x{border:0;background:none;color:#fff;font-size:2rem;line-height:1;cursor:pointer}
+.drawer nav{overflow-y:auto;padding:10px 0}
+.drawer nav a{display:flex;align-items:center;gap:14px;padding:13px 24px;text-decoration:none;font-weight:600;font-size:.92rem;color:var(--fg);border-left:4px solid transparent;transition:.2s}
+.drawer nav a i{width:20px;text-align:center;color:var(--navy)}
+.drawer nav a:hover,.drawer nav a.on{background:var(--grad-soft);border-left-color:var(--crim)}
+.scrim{position:fixed;inset:0;background:rgba(10,12,30,.5);z-index:250;opacity:0;pointer-events:none;transition:.3s}
+.scrim.show{opacity:1;pointer-events:auto}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;padding:130px 0 90px;
+  background:linear-gradient(120deg,rgba(5,150,105,.9),rgba(30,58,138,.88) 55%,rgba(163,22,43,.88)),url(assets/img/band-1.jpg) center/cover fixed}
+@media (hover:none){.hero{background-attachment:scroll}}
+#particles{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:relative;z-index:1;max-width:940px;padding:0 20px}
+.hero .dept{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.88)}
+.hero h1{font-family:var(--f-head);font-weight:900;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.08;margin:18px 0 22px;text-shadow:0 4px 24px rgba(0,0,0,.25)}
+.hero h1 span{background:linear-gradient(90deg,#fde68a,#fff,#a7f3d0,#fde68a);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s ease infinite}
+@keyframes flow{50%{background-position:100% 0}}
+.badge{display:inline-flex;align-items:center;gap:12px;padding:12px 28px;border-radius:50px;background:rgba(255,255,255,.14);border:2px solid rgba(255,215,0,.65);backdrop-filter:blur(6px);font-weight:700;font-size:1.05rem;box-shadow:0 0 30px rgba(255,215,0,.25)}
+.badge i{color:var(--gold);font-size:1.3rem}
+.hero p.tag{max-width:760px;margin:24px auto 0;font-size:clamp(1rem,1.6vw,1.2rem);color:rgba(255,255,255,.92)}
+.hero .btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--f-body);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.light{background:#fff;color:var(--navy);box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.btn.ghost{border-color:#fff;color:#fff;background:transparent}
+.btn.ghost:hover{background:#fff;color:var(--navy)}
+.btn.grad{background:var(--grad);color:#fff;box-shadow:0 10px 26px rgba(30,58,138,.3)}
+.hstats{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:48px}
+.hstats div{min-width:130px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px)}
+.hstats b{display:block;font-family:var(--f-head);font-size:1.9rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.hstats span{font-size:.78rem;color:rgba(255,255,255,.85)}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.75);border-radius:14px;z-index:1}
+.scroll::before{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;border-radius:2px;background:#fff;transform:translateX(-50%);animation:wheel 1.8s infinite}
+@keyframes wheel{to{transform:translate(-50%,14px);opacity:0}}
+
+/* sections */
+.sec{padding:100px 0}
+.sec.alt{background:var(--grad-soft)}
+.title{text-align:center;margin-bottom:56px}
+.title .kick{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crim);margin-bottom:10px}
+.title h2{font-family:var(--f-head);font-weight:900;font-size:clamp(2rem,4.6vw,3.2rem)}
+.title p{max-width:680px;margin:14px auto 0;color:var(--muted)}
+.title::after{content:"";display:block;width:90px;height:5px;border-radius:5px;margin:20px auto 0;background:var(--grad)}
+@media (max-width:700px){.sec{padding:70px 0}.title{margin-bottom:40px}}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.about .lead{font-size:1.2rem;font-weight:500;line-height:1.6}
+.about .lead + p{margin-top:16px;color:var(--muted)}
+.about .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about .mosaic figure{margin:0;position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.about .mosaic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.about .mosaic figure:hover img{transform:scale(1.07)}
+.about .mosaic figcaption{position:absolute;left:10px;bottom:10px;font-size:.7rem;font-weight:600;color:#fff;background:rgba(20,23,43,.6);padding:3px 10px;border-radius:20px}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.pillars div{text-align:center;padding:16px 8px;border-radius:14px;background:#fff;box-shadow:0 4px 16px rgba(30,58,138,.08);font-size:.8rem;font-weight:600}
+.pillars i{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 8px;border-radius:50%;background:var(--grad);color:#fff;font-size:1.05rem}
+@media (max-width:900px){.about{grid-template-columns:1fr}.pillars{grid-template-columns:1fr 1fr}}
+
+/* research cards */
+.rgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px}
+.rc{grid-column:span 2;position:relative;background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column}
+.rc:nth-child(4){grid-column:2/span 2}
+.rc:hover{transform:translateY(-10px);box-shadow:0 22px 50px rgba(30,58,138,.2)}
+.rc .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#111}
+.rc .im img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .6s}
+.rc:hover .im img{transform:scale(1.08)}
+.rc .ic{position:absolute;right:16px;bottom:14px;width:56px;height:56px;border-radius:16px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:1.35rem;box-shadow:0 8px 20px rgba(30,58,138,.35);z-index:1;transition:transform .5s}
+.rc:hover .ic{transform:rotate(360deg)}
+.rc .bd{padding:26px 24px 26px}
+.rc .no{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--crim)}
+.rc h3{font-family:var(--f-head);font-size:1.12rem;margin:6px 0 10px}
+.rc p{font-size:.9rem;color:var(--muted)}
+.rc::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.rc:hover::after{transform:scaleX(1)}
+@media (max-width:980px){.rgrid{grid-template-columns:1fr 1fr}.rc,.rc:nth-child(4){grid-column:auto}}
+@media (max-width:640px){.rgrid{grid-template-columns:1fr}}
+
+/* PI */
+.pi{display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:start}
+.pi .ph{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 26px 60px rgba(20,23,43,.28);aspect-ratio:4/5}
+.pi .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pi .ph:hover img{transform:scale(1.05)}
+.pi .ph .ov{position:absolute;inset:auto 0 0 0;padding:40px 22px 20px;background:linear-gradient(transparent,rgba(20,23,43,.88));color:#fff}
+.pi .ph h4{font-size:1.3rem}
+.pi .ph .ov p{font-size:.85rem;color:rgba(255,255,255,.85)}
+.soc{display:flex;justify-content:center;gap:16px;margin-top:22px}
+.soc a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.2rem;text-decoration:none;box-shadow:0 8px 20px rgba(30,58,138,.3);transition:transform .3s}
+.soc a:hover{transform:translateY(-5px) rotate(8deg)}
+.pi .bio h3{font-family:var(--f-head);font-size:1.9rem}
+.pi .bio .t{color:var(--muted);margin:8px 0 18px;font-size:.95rem}
+.pi .bio .t a{color:var(--crim);font-weight:600;text-decoration:none}
+.pi .bio p.j{text-align:justify;hyphens:auto;margin-bottom:14px;color:#33384d}
+.qt{position:relative;padding:20px 24px 20px 58px;border-radius:16px;background:var(--grad-soft);margin-bottom:18px;font-weight:500}
+.qt i{position:absolute;left:20px;top:20px;font-size:1.5rem;color:var(--navy);opacity:.7}
+details.more summary{cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--navy);list-style:none;margin:4px 0 14px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"\f078";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.8rem;transition:transform .3s}
+details.more[open] summary::after{transform:rotate(180deg)}
+.cv{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.cvb{background:#fff;border-radius:20px;padding:26px;box-shadow:var(--shadow);border-top:5px solid transparent;border-image:var(--grad) 1;border-image-slice:1 0 0 0}
+.cvb h4{display:flex;align-items:center;gap:12px;font-family:var(--f-head);font-size:1.1rem;margin-bottom:12px}
+.cvb h4 i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1rem}
+.cvb ul{list-style:none;margin:0;padding:0}
+.cvb li{position:relative;padding:10px 0 10px 20px;border-top:1px solid var(--rule);font-size:.88rem;font-weight:500}
+.cvb li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.cvb li small{display:block;color:var(--muted);font-weight:400;font-size:.8rem}
+@media (max-width:980px){.pi{grid-template-columns:1fr}.pi .ph{max-width:380px;margin:0 auto}.cv{grid-template-columns:1fr}}
+
+/* people */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.team.big{grid-template-columns:repeat(2,minmax(0,330px));justify-content:center}
+.pc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:transform .35s;text-align:center}
+.pc:hover{transform:translateY(-8px)}
+.pc .im{position:relative;aspect-ratio:1;overflow:hidden;background:var(--tint)}
+.pc .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pc:hover .im img{transform:scale(1.07)}
+.pc .im .ov{position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px;background:linear-gradient(transparent 35%,rgba(30,58,138,.92));color:#fff;font-size:.85rem;text-align:left;opacity:0;transition:opacity .35s}
+.pc:hover .im .ov,.pc:focus-within .im .ov{opacity:1}
+.pc .bd{padding:18px 16px 22px}
+.role{display:inline-block;padding:4px 14px;border-radius:30px;background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.pc h3{font-family:var(--f-head);font-size:1.02rem;margin:10px 0 4px}
+.pc .em{font-size:.78rem;color:var(--muted);word-break:break-all;text-decoration:none}
+.pc .em:hover{color:var(--crim)}
+.subt{text-align:center;font-family:var(--f-head);font-size:1.4rem;margin:64px 0 28px}
+.subt::after{content:"";display:block;width:50px;height:4px;border-radius:4px;margin:12px auto 0;background:var(--grad)}
+@media (max-width:980px){.team{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.team,.team.big{grid-template-columns:1fr 1fr;gap:14px}.pc .bd{padding:12px 8px 16px}.pc h3{font-size:.9rem}}
+@media (hover:none){.pc .im .ov{display:none}}
+.pc .desc{display:none}
+@media (hover:none){.pc .desc{display:block;font-size:.8rem;color:var(--muted);margin-top:6px}}
+.join{margin-top:50px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:30px 34px;border-radius:24px;background:var(--grad);color:#fff;box-shadow:0 18px 40px rgba(30,58,138,.28)}
+.join h3{font-family:var(--f-head);font-size:1.4rem}
+.join p{opacity:.9;font-size:.92rem}
+
+/* publications */
+.scholar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:46px}
+.scholar div{text-align:center;padding:22px 10px;border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.scholar b{display:block;font-family:var(--f-head);font-size:2.2rem;font-weight:900;font-variant-numeric:tabular-nums}
+.scholar span{font-size:.82rem;color:var(--muted)}
+@media (max-width:640px){.scholar{grid-template-columns:1fr 1fr}}
+.subh{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.subh h3{font-family:var(--f-head);font-size:1.35rem;display:flex;align-items:center;gap:12px}
+.subh h3 i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1rem}
+.subh small{color:var(--muted);font-size:.82rem}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:64px}
+.figs button{all:unset;cursor:zoom-in;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s}
+.figs button:hover{transform:translateY(-6px)}
+.figs button:focus-visible{outline:3px solid var(--gold)}
+.figs .fi{aspect-ratio:3/2;background:#fff;overflow:hidden;border-bottom:1px solid var(--rule)}
+.figs img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s}
+.figs button:hover img{transform:scale(1.05)}
+.figs .cap{padding:14px 16px 16px}
+.figs b{display:block;font-size:.88rem;font-weight:600;line-height:1.35}
+.figs span{display:block;margin-top:6px;font-size:.76rem;font-weight:700;color:var(--crim)}
+@media (max-width:860px){.figs{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.figs{grid-template-columns:1fr}}
+.ptools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.ptools .s{position:relative;flex:1 1 280px;min-width:0}
+.ptools .s i{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.ptools input{width:100%;font:inherit;font-size:.92rem;padding:13px 18px 13px 46px;border:2px solid var(--rule);border-radius:50px;background:#fff;color:var(--fg);transition:border-color .2s}
+.ptools input:focus{border-color:var(--navy);outline:none}
+.chips{display:flex;gap:6px}
+.chips button{font:inherit;font-size:.84rem;font-weight:600;padding:10px 18px;border-radius:50px;border:2px solid var(--rule);background:#fff;color:var(--fg);cursor:pointer;transition:.2s}
+.chips button.on{background:var(--grad);border-color:transparent;color:#fff}
+.ptools .c{font-size:.8rem;color:var(--muted);margin-left:auto}
+.pubs{display:flex;flex-direction:column;gap:14px}
+.pub{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:16px 18px;border-radius:16px;background:#fff;box-shadow:0 3px 14px rgba(30,58,138,.07);border-left:4px solid transparent;transition:border-color .25s,transform .25s}
+.pub:hover{border-left-color:var(--crim);transform:translateX(4px)}
+.pub .cov{width:70px;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.2);background:var(--tint)}
+.pub > div{min-width:0}
+.pub .y{display:inline-block;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:20px;background:var(--tint);color:var(--muted)}
+.pub .y.new{background:var(--grad);color:#fff}
+.pub .t{font-weight:600;line-height:1.4;margin-top:6px}
+.pub .a{font-size:.84rem;color:var(--muted);margin-top:4px}
+.pub .a strong{color:var(--navy)}
+.pub .jn{font-size:.84rem;margin-top:2px}
+.pub .doi{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.76rem;font-weight:600;color:var(--crim);text-decoration:none;word-break:break-all}
+.pub .doi:hover{text-decoration:underline}
+.pub .nodoi{display:inline-block;margin-top:6px;font-size:.76rem;color:var(--muted)}
+.pat{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:1px 8px;border-radius:20px;background:var(--gold);color:#3a2a00;margin-right:8px;vertical-align:2px}
+@media (max-width:520px){.pub{grid-template-columns:52px 1fr;gap:12px;padding:14px}.pub .cov{width:52px}}
+
+/* resources */
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.tabs button{font:inherit;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:50px;border:2px solid var(--rule);background:#fff;color:var(--fg);cursor:pointer;transition:.2s}
+.tabs button.on{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(30,58,138,.25)}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.res[hidden]{display:none}
+.res a{position:relative;display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:18px;background:#fff;box-shadow:0 4px 18px rgba(30,58,138,.08);text-decoration:none;transition:transform .3s,box-shadow .3s;overflow:hidden}
+.res a:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.res a > i{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--grad-soft);color:var(--navy);font-size:1.05rem;transition:.3s}
+.res a:hover > i{background:var(--grad);color:#fff}
+.res b{display:block;font-weight:600;font-size:.95rem}
+.res span{font-size:.82rem;color:var(--muted)}
+.res a::after{content:"\f35d";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:16px;top:16px;font-size:.75rem;color:var(--crim);opacity:.6}
+@media (max-width:900px){.res{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.res{grid-template-columns:1fr}}
+
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pj{position:relative;padding:26px 24px;border-radius:20px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transition:transform .3s;overflow:hidden}
+.pj:hover{transform:translateY(-6px)}
+.pj::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--grad)}
+.pj .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pj .yr{font-family:var(--f-head);font-weight:800;font-size:1.05rem}
+.st{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px}
+.st.go{background:#d1fae5;color:#065f46}
+.st.done{background:#e0e7ff;color:#1e3a8a}
+.st.go::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#059669;margin-right:6px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.pj h3{font-size:1rem;font-weight:600;line-height:1.4}
+.pj .ag{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--navy)}
+.pj small{font-size:.78rem;color:var(--muted)}
+@media (max-width:980px){.proj{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.proj{grid-template-columns:1fr}}
+
+/* teaching */
+.teach{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.inst{padding:26px;border-radius:22px;background:#fff;box-shadow:var(--shadow)}
+.inst .hd{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.inst .hd > i{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.2rem}
+.inst h3{font-family:var(--f-head);font-size:1.1rem}
+.inst .w{font-size:.8rem;color:var(--muted)}
+.courses{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.course{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--grad-soft);font-size:.85rem;font-weight:500;line-height:1.3}
+.course svg{width:32px;height:32px;flex-shrink:0;padding:6px;border-radius:9px;background:#fff;color:var(--navy)}
+.course small{display:block;font-size:.7rem;color:var(--muted);font-weight:400}
+@media (max-width:900px){.teach{grid-template-columns:1fr}}
+@media (max-width:440px){.courses{grid-template-columns:1fr}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+.gal button{all:unset;cursor:zoom-in;position:relative;overflow:hidden;border-radius:16px;background:var(--tint)}
+.gal button:nth-child(7n+1){grid-column:span 2;grid-row:span 2}
+.gal button:focus-visible{outline:3px solid var(--gold)}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gal button:hover img{transform:scale(1.08)}
+.gal span{position:absolute;inset:auto 0 0 0;padding:34px 14px 12px;font-size:.8rem;color:#fff;background:linear-gradient(transparent,rgba(30,58,138,.9));opacity:0;transform:translateY(10px);transition:.35s}
+.gal button:hover span,.gal button:focus-visible span{opacity:1;transform:none}
+@media (max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
+@media (hover:none){.gal span{opacity:1;transform:none;font-size:.72rem}}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+dialog.lb::backdrop{background:rgba(10,12,30,.9)}
+dialog.lb img{max-width:100%;max-height:80vh;display:block;margin:0 auto;background:#fff;border-radius:10px}
+dialog.lb p{color:#eee;text-align:center;padding:12px 6px 0;font-size:.92rem}
+dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+
+/* news timeline */
+.tl{position:relative;max-width:860px;margin:0 auto;padding-left:34px}
+.tl::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:4px;border-radius:4px;background:linear-gradient(to bottom,#059669,#1e3a8a,#a3162b)}
+.tl li{list-style:none;position:relative;margin-bottom:22px;padding:20px 24px;border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.tl li::before{content:"";position:absolute;left:-31px;top:24px;width:14px;height:14px;border-radius:50%;background:#fff;border:4px solid var(--navy);box-shadow:0 0 0 5px rgba(30,58,138,.15);animation:ring 2s infinite}
+@keyframes ring{50%{box-shadow:0 0 0 9px rgba(30,58,138,.05)}}
+.tl .d{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:20px;background:var(--grad);color:#fff;margin-bottom:6px}
+.tl b{display:block;font-family:var(--f-head);font-size:1.05rem}
+.tl p{font-size:.9rem;color:var(--muted)}
+.tl ul{margin:0;padding:0}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:34px}
+.cinfo{display:grid;gap:16px}
+.ci{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:18px;background:#fff;box-shadow:var(--shadow);transition:transform .3s}
+.ci:hover{transform:translateX(6px)}
+.ci > i{flex-shrink:0;width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.15rem}
+.ci h4{font-size:1rem;margin-bottom:2px}
+.ci p,.ci a{font-size:.9rem;color:var(--muted);text-decoration:none}
+.ci a:hover{color:var(--crim)}
+.form{padding:32px;border-radius:24px;background:#fff;box-shadow:var(--shadow);display:grid;gap:14px;align-content:start}
+.form h3{font-family:var(--f-head);font-size:1.35rem}
+.form p.n{font-size:.84rem;color:var(--muted);margin-top:-6px}
+.form input,.form textarea{width:100%;font:inherit;font-size:.92rem;padding:13px 16px;border:2px solid var(--rule);border-radius:14px;background:var(--tint);color:var(--fg);transition:.2s}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--navy);background:#fff}
+.form textarea{min-height:130px;resize:vertical}
+.form .btn{justify-self:start}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+
+/* footer */
+.foot{position:relative;background:var(--grad);color:#fff;padding:70px 0 0;overflow:hidden}
+.foot::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.foot .cols{position:relative;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
+.foot .fb{display:flex;align-items:center;gap:12px}
+.foot .fb img{width:58px;height:58px;background:#fff;border-radius:14px;padding:6px}
+.foot .fb b{font-family:var(--f-head);font-size:1.15rem}
+.foot p{font-size:.88rem;opacity:.88;margin-top:14px}
+.foot h4{font-family:var(--f-head);font-size:1rem;margin-bottom:14px;position:relative;padding-bottom:10px}
+.foot h4::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:3px;border-radius:3px;background:var(--gold)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot ul a{text-decoration:none;font-size:.88rem;opacity:.9;transition:.2s}
+.foot ul a:hover{opacity:1;padding-left:5px;color:#fde68a}
+.foot .soc{justify-content:flex-start;margin-top:18px}
+.foot .soc a{width:42px;height:42px;font-size:1rem;background:rgba(255,255,255,.16);box-shadow:none}
+.foot .soc a:hover{background:#fff;color:var(--navy)}
+.foot .base{position:relative;margin-top:50px;padding:20px 0;border-top:1px solid rgba(255,255,255,.22);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;opacity:.9}
+.foot .base a{color:#fde68a;text-decoration:none}
+@media (max-width:900px){.foot .cols{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot .cols{grid-template-columns:1fr}}
+.totop{position:fixed;right:20px;bottom:20px;z-index:90;width:48px;height:48px;border-radius:50%;border:0;background:var(--grad);color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 8px 22px rgba(30,58,138,.35);opacity:0;pointer-events:none;transform:translateY(16px);transition:.3s}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+</style>
+</head>
+<body>
+
+<!-- subject icons for the teaching section -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="7" height="16" rx="1"/><rect x="14.5" y="4" width="7" height="16" rx="1"/><circle cx="5" cy="8" r=".9" fill="currentColor"/><circle cx="7" cy="11" r=".9" fill="currentColor"/><circle cx="5" cy="14" r=".9" fill="currentColor"/><circle cx="7" cy="17" r=".9" fill="currentColor"/><circle cx="18" cy="15" r=".9" fill="currentColor"/><path d="M10.5 12h3m-1.2-1.6 1.6 1.6-1.6 1.6"/></symbol>
+  <symbol id="i-lattice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M5 12h14M12 5v14"/><circle cx="5" cy="5" r="1.7" fill="currentColor"/><circle cx="19" cy="5" r="1.7" fill="currentColor"/><circle cx="5" cy="19" r="1.7" fill="currentColor"/><circle cx="19" cy="19" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="2.1" fill="currentColor"/></symbol>
+  <symbol id="i-colloid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="8" r="3"/><circle cx="16.5" cy="6.5" r="2"/><circle cx="15" cy="15.5" r="3.5"/><circle cx="6" cy="17" r="2"/><circle cx="11" cy="11.5" r=".9" fill="currentColor"/><circle cx="20" cy="12" r=".9" fill="currentColor"/></symbol>
+  <symbol id="i-safety" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.8v5.6c0 4.6 3.1 8.2 7.5 9.8 4.4-1.6 7.5-5.200 7.5-9.8V5.8z"/><path d="m8.6 12 2.4 2.4 4.4-4.6"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5M10.5 3v6L5 18.5A1.8 1.8 0 0 0 6.6 21h10.8a1.8 1.8 0 0 0 1.6-2.5L13.5 9V3"/><path d="M7.4 15h9.2"/></symbol>
+  <symbol id="i-interface" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18.5h19"/><path d="M5.5 18.5c0-5 3-8.5 6.5-8.5s6.5 3.5 6.5 8.5"/><path d="M8.2 18.5l1.6-2.2" opacity=".6"/><path d="M12 4v2.5"/></symbol>
+  <symbol id="i-beaker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.5h15M6 3.5V19a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 19V3.5"/><path d="M6 12.5h12"/><path d="M10 8h4" opacity=".6"/></symbol>
+  <symbol id="i-energy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5 5 13.5h6l-1 8 8.5-11h-6z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13.5 15-14-.4 10-6 15-14 15"/><path d="M5 19c3-4 6-6.5 9.5-8.5"/></symbol>
+  <symbol id="i-reactor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6.5h12v11a3.5 3.5 0 0 1-3.5 3.5h-5A3.5 3.5 0 0 1 6 17.5z"/><path d="M12 2.5v13M9 15.5h6"/><path d="M3 9.5h3M18 14.5h3"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="1.5"/><path d="M8 6.5h8v3H8z"/><path d="M8.5 13.5h.01M12 13.5h.01M15.5 13.5h.01M8.5 17h.01M12 17h.01M15.5 17h.01" stroke-width="2.4"/></symbol>
+  <symbol id="i-fluid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 8c2.5-2 4.5-2 7 0s4.5 2 7 0 3.5-1.5 5-1"/><path d="M2.5 13c2.5-2 4.5-2 7 0s4.5 2 7 0 3.5-1.5 5-1"/><path d="M2.5 18c2.5-2 4.5-2 7 0s4.5 2 7 0 3.5-1.5 5-1"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="navbar">
+    <a class="brand" href="#home"><span class="tile"><img src="assets/logo/cnl-logo-mark.svg" alt="CNL logo"></span><span><b>CNL</b><small>Colloids &amp; Nanomaterials Lab · IIT Dharwad</small></span></a>
+    <nav class="menu" id="menu" aria-label="Sections">
+      <a href="#home" class="on"><i class="fas fa-home"></i>HOME</a>
+      <a href="#research"><i class="fas fa-atom"></i>RESEARCH</a>
+      <a href="#pi"><i class="fas fa-user-tie"></i>PI</a>
+      <a href="#people"><i class="fas fa-users"></i>PEOPLE</a>
+      <a href="#publications"><i class="fas fa-book-open"></i>PUBLICATIONS</a>
+      <a href="#projects"><i class="fas fa-hand-holding-dollar"></i>PROJECTS</a>
+      <a href="#gallery"><i class="fas fa-images"></i>GALLERY</a>
+      <a href="#contact"><i class="fas fa-envelope"></i>CONTACT</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<aside class="drawer" id="drawer" aria-label="Menu">
+  <div class="dh"><span><img src="assets/logo/cnl-logo-mark.svg" alt="">CNL</span><button class="x" id="dx" aria-label="Close menu">×</button></div>
+  <nav id="dnav">
+    <a href="#home"><i class="fas fa-home"></i>Home</a>
+    <a href="#about"><i class="fas fa-flask"></i>About</a>
+    <a href="#research"><i class="fas fa-atom"></i>Research</a>
+    <a href="#pi"><i class="fas fa-user-tie"></i>Principal Investigator</a>
+    <a href="#people"><i class="fas fa-users"></i>People</a>
+    <a href="#publications"><i class="fas fa-book-open"></i>Publications</a>
+    <a href="#resources"><i class="fas fa-toolbox"></i>Resources</a>
+    <a href="#projects"><i class="fas fa-hand-holding-dollar"></i>Projects</a>
+    <a href="#teaching"><i class="fas fa-chalkboard-teacher"></i>Teaching</a>
+    <a href="#gallery"><i class="fas fa-images"></i>Gallery</a>
+    <a href="#news"><i class="fas fa-newspaper"></i>News</a>
+    <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+  </nav>
+</aside>
+<div class="scrim" id="scrim"></div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="in">
+    <span class="dept"><i class="fas fa-building-columns"></i>Department of Chemical Engineering · IIT Dharwad</span>
+    <h1>Colloids &amp; <span>Nanomaterials</span> Lab</h1>
+    <span class="badge"><i class="fas fa-microscope"></i>Understanding and engineering the nanoscale</span>
+    <p class="tag">We study how nanoparticles nucleate, grow, change shape and interact, and we use that understanding to design materials for drug delivery, catalysis, energy and the environment.</p>
+    <div class="btns">
+      <a class="btn light" href="#research"><i class="fas fa-atom"></i>Explore our research</a>
+      <a class="btn ghost" href="#contact"><i class="fas fa-user-graduate"></i>PhD positions open</a>
+    </div>
+    <div class="hstats">
+      <div><b data-n="30" data-s="+">30+</b><span>journal papers</span></div>
+      <div><b data-n="2">2</b><span>Indian patents</span></div>
+      <div><b data-n="1095">1,095</b><span>citations</span></div>
+      <div><b data-n="43">43</b><span>students guided</span></div>
+    </div>
+  </div>
+  <a class="scroll" href="#about" aria-label="Scroll to About"></a>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">About the lab</span><h2>Engineering matter at the <span class="gt">nanoscale</span></h2></div>
+    <div class="about">
+      <div class="reveal">
+        <p class="lead">CNL brings together materials synthesis, mechanism-driven experiments, modelling and interface science, connecting molecular mechanisms to macroscopic behaviour.</p>
+        <p>Our work combines experiments and computation in equal measure. In the laboratory, we synthesise nanoparticles, engineer colloids and interfaces, and develop drug-delivery systems and catalytic materials. In parallel, we build population balance models, Monte Carlo simulations, thermodynamic models, molecular dynamics and docking studies. Each side drives the other: experiments test our models, and models guide our next experiments.</p>
+        <div class="pillars">
+          <div><i class="fas fa-vial"></i>Synthesis</div>
+          <div><i class="fas fa-microscope"></i>Characterisation</div>
+          <div><i class="fas fa-laptop-code"></i>Modelling</div>
+          <div><i class="fas fa-capsules"></i>Applications</div>
+        </div>
+      </div>
+      <div class="mosaic reveal">
+        <figure><img src="assets/img/band-1.jpg" alt="HR-TEM of iron oxide nanostars"><figcaption>Fe₃O₄ nanostars</figcaption></figure>
+        <figure><img src="assets/img/band-2.jpg" alt="HR-TEM of nanocubes"><figcaption>nanocubes</figcaption></figure>
+        <figure><img src="assets/img/band-3.jpg" alt="TEM of nanotriangles"><figcaption>nanotriangles</figcaption></figure>
+        <figure><img src="assets/img/band-4.jpg" alt="TEM of monodisperse nanocubes"><figcaption>monodisperse cubes</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="sec alt" id="research">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Research</span><h2>From <span class="gt">synthesis</span> to application</h2><p>Magnetic and metal-oxide nanoparticles, heterostructured catalysts, polymer-stabilised nanocarriers and computational drug design.</p></div>
+    <div class="rgrid">
+      <article class="rc reveal"><div class="im"><img src="assets/img/res-1.jpg" alt="Nucleation and growth schematic"><span class="ic"><i class="fas fa-seedling"></i></span></div><div class="bd"><span class="no">Theme 01</span><h3>Nanoparticle formation, morphology control and growth models</h3><p>How nanomaterials nucleate, grow and change shape in thermal decomposition, coprecipitation and solvent-less routes: prenucleation clusters, metastable intermediates, thermodynamic modelling and Monte Carlo simulation of aggregation.</p></div></article>
+      <article class="rc reveal"><div class="im"><img src="assets/img/res-2.jpg" alt="TEM of iron oxide nanoparticles, 0.2 µm scale"><span class="ic"><i class="fas fa-capsules"></i></span></div><div class="bd"><span class="no">Theme 02</span><h3>Drug delivery, cancer therapy and biological interfaces</h3><p>Polymer-coated, shape-controlled magnetic nanoparticles for targeted therapy: cellular uptake, membrane deformation energies, PEG-dependent stability and drug–nanocarrier synergy.</p></div></article>
+      <article class="rc reveal"><div class="im"><img src="assets/img/res-3.jpg" alt="TEM of monodisperse nanocubes"><span class="ic"><i class="fas fa-bolt"></i></span></div><div class="bd"><span class="no">Theme 03</span><h3>Catalysis and energy nanomaterials</h3><p>Pd/magnetite heterostructures, metal oxides and nano-hybrids for electro-oxidation, hydrogen generation, CO₂ capture and battery thermal management, through facet engineering.</p></div></article>
+      <article class="rc reveal"><div class="im"><img src="assets/img/res-4.jpg" alt="TEM of assembled nanotriangles"><span class="ic"><i class="fas fa-circle-nodes"></i></span></div><div class="bd"><span class="no">Theme 04</span><h3>Colloids, interfaces and nanoparticle–membrane interactions</h3><p>Aggregation physics, polymer-mediated stability and Monte Carlo models of dispersion state and membrane engulfment of nanoparticles.</p></div></article>
+      <article class="rc reveal"><div class="im"><img src="assets/img/res-5.jpg" alt="HR-TEM of nanocubes"><span class="ic"><i class="fas fa-dna"></i></span></div><div class="bd"><span class="no">Theme 05</span><h3>Computational chemistry for drug discovery</h3><p>Docking, molecular dynamics and in-silico screening: estrogen receptor-α inhibitors, SARS-CoV-2 receptor mimics and tirzepatide analogues.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PI -->
+<section class="sec" id="pi">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Principal Investigator</span><h2>Meet the <span class="gt">PI</span></h2></div>
+    <div class="pi">
+      <div class="reveal">
+        <div class="ph"><img src="assets/img/prof.jpg" alt="Prof. C. Ravikumar"><div class="ov"><h4>Prof. C. Ravikumar</h4><p>Associate Professor, Chemical Engineering</p></div></div>
+        <div class="soc">
+          <a href="mailto:ravikumar@iitdh.ac.in" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=McmMUDcAAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://www.linkedin.com/in/ravikumar-c-b6a07531/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.iitdh.ac.in/user-profile/c-ravikumar" target="_blank" rel="noopener" title="IIT Dharwad profile" aria-label="IIT Dharwad profile"><i class="fas fa-id-badge"></i></a>
+        </div>
+      </div>
+      <div class="bio reveal">
+        <h3>Prof. C. Ravikumar</h3>
+        <p class="t">Associate Professor, Associate Dean - General Outreach, Member of the Senate<br>Department of Chemical Engineering, Indian Institute of Technology Dharwad, Karnataka, India-580011<br><a href="mailto:ravikumar@iitdh.ac.in">ravikumar@iitdh.ac.in</a></p>
+        <div class="qt"><i class="fas fa-quote-left"></i>Integrating experiments, mechanistic modelling and molecular simulation to design nanostructures with tunable morphologies.</div>
+        <p class="j">Prof. C. Ravikumar’s research spans nanotechnology, materials science, and chemical engineering, with a focus on understanding and engineering the formation, assembly, interaction, and functionality of nanoparticles. His group integrates experiments, mechanistic modelling, molecular simulations, and computational chemistry to design nanostructures with tunable morphologies for applications in catalysis, therapeutic delivery, energy systems, and interfacial science.</p>
+        <p class="j">He received his PhD in Chemical Engineering from IIT Bombay, where he investigated nanoparticle formation mechanisms in aqueous and organic systems. He later undertook postdoctoral research at the New Jersey Institute of Technology (USA) on top-down approaches for producing stable drug nanoparticles.</p>
+        <details class="more"><summary>Read full biography</summary>
+          <p class="j">Prof. Ravikumar has made significant contributions to the understanding of nanoparticle nucleation, growth, surface modification, and solvent-mediated morphology control, with publications in leading journals such as Journal of Physical Chemistry C, Langmuir, Industrial &amp; Engineering Chemistry Research, Crystal Growth &amp; Design, Journal of Molecular Liquids, and Materialia. He also holds Indian patents on the controlled synthesis of iron oxide nanoparticles.</p>
+          <p class="j">His research excellence has been recognised through multiple awards, including the IIT Bombay Best PhD Thesis Award, Battelle Best Employee Award, and several Best Oral/Poster Presentation Awards. His students have received national recognition for work in nanoparticle-based drug delivery and cancer therapeutics.</p>
+          <p class="j">Prof. Ravikumar has led sponsored research projects funded by SERB, UGC-DAE-CSR, defence agencies, and industry partners, covering areas such as catalytic nanomaterials, hydrogen production, targeted cancer nanocarriers, environmental remediation, and biocompatible materials.</p>
+          <p class="j">At IIT Dharwad, he serves as Associate Dean (General Outreach) and actively contributes to institutional planning, academic development, and outreach. He has also organised international conferences, advanced nanotechnology workshops, and hands-on training programs, while remaining deeply engaged in scientific and societal outreach.</p>
+        </details>
+      </div>
+    </div>
+    <div class="cv">
+      <div class="cvb reveal"><h4><i class="fas fa-graduation-cap"></i>Education</h4><ul>
+        <li>PhD, Chemical Engineering<small>IIT Bombay · 2006–2011</small></li>
+        <li>M.E., Chemical Engineering<small>Annamalai University · 2002–2004</small></li>
+        <li>B.Tech., Chemical Engineering<small>University of Madras · 1999–2002</small></li>
+      </ul></div>
+      <div class="cvb reveal"><h4><i class="fas fa-briefcase"></i>Appointments</h4><ul>
+        <li>Associate Professor, IIT Dharwad<small>2025 – present</small></li>
+        <li>Assistant Professor, VNIT Nagpur<small>2015 – 2024</small></li>
+        <li>Associate Professor, SSN College of Engg.<small>2014 – 2015</small></li>
+        <li>Postdoctoral Researcher, NJIT, USA<small>2012 – 2013</small></li>
+        <li>Researcher, Battelle India, Pune<small>2010 – 2012</small></li>
+      </ul></div>
+      <div class="cvb reveal"><h4><i class="fas fa-trophy"></i>Honours</h4><ul>
+        <li>Best PhD Thesis Award, IIT Bombay<small>2012</small></li>
+        <li>Best Employee Award, Battelle India<small>2012</small></li>
+        <li>Certificate of Appreciation, NJIT<small>2013</small></li>
+        <li>Chellammal Agro Project Award, SSN<small>2014</small></li>
+        <li>Best oral &amp; poster awards, APT-2009<small>2009</small></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="sec alt" id="people">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">People</span><h2>Our <span class="gt">team</span></h2><p>We are always looking for curious PhD students and undergraduate researchers.</p></div>
+    <div class="team big">
+      <article class="pc reveal"><div class="im"><img src="assets/img/santhosh.jpg" alt="Santhosh Kumar P"><div class="ov">Advanced nanomaterials for electrocatalysis and electrochemical energy, focusing on structure–property relationships.</div></div><div class="bd"><span class="role">PhD Scholar</span><h3>Santhosh Kumar P</h3><a class="em" href="mailto:cl25dp004@iitdh.ac.in"><i class="fas fa-envelope"></i> cl25dp004@iitdh.ac.in</a><p class="desc">Advanced nanomaterials for electrocatalysis and electrochemical energy.</p></div></article>
+      <article class="pc reveal"><div class="im"><img src="assets/img/poorvaja.jpg" alt="Poorvaja V G"><div class="ov">Nanomedicine: targeted and controlled drug delivery, and nanomaterials for better therapeutic efficiency.</div></div><div class="bd"><span class="role">PhD Scholar</span><h3>Poorvaja V G</h3><a class="em" href="mailto:cl26dp003@iitdh.ac.in"><i class="fas fa-envelope"></i> cl26dp003@iitdh.ac.in</a><p class="desc">Nanomedicine: targeted and controlled drug delivery.</p></div></article>
+    </div>
+    <h3 class="subt">Undergraduate researchers</h3>
+    <div class="team">
+      <article class="pc reveal"><div class="im"><img src="assets/img/aabha.jpg" alt="Aabha Anup Devnikar"><div class="ov">Population balance modelling of magnetite nanoparticle formation.</div></div><div class="bd"><h3>Aabha Anup Devnikar</h3><p class="desc">Population balance modelling of magnetite nanoparticle formation.</p></div></article>
+      <article class="pc reveal"><div class="im"><img src="assets/img/vijay.jpg" alt="Anugu Vijay Reddy"><div class="ov">Population balance simulation for monodisperse magnetite.</div></div><div class="bd"><h3>Anugu Vijay Reddy</h3><p class="desc">Population balance simulation for monodisperse magnetite.</p></div></article>
+      <article class="pc reveal"><div class="im"><img src="assets/img/aryawardhan.jpg" alt="Aryawardhansingh Y. Solanki"><div class="ov">Molecular dynamics of tirzepatide analogues.</div></div><div class="bd"><h3>Aryawardhansingh Y. Solanki</h3><p class="desc">Molecular dynamics of tirzepatide analogues.</p></div></article>
+      <article class="pc reveal"><div class="im"><img src="assets/img/saurabh.jpg" alt="Saurabh Kumar Dhavaj"><div class="ov">Docking and atomistic simulation of tirzepatide variants.</div></div><div class="bd"><h3>Saurabh Kumar Dhavaj</h3><p class="desc">Docking and atomistic simulation of tirzepatide variants.</p></div></article>
+    </div>
+    <div class="join reveal"><div><h3>Interested in nanoparticles? Come work with us.</h3><p>PhD positions are open. Apply through IIT Dharwad admissions.</p></div><a class="btn light" href="https://www.iitdh.ac.in/phd" target="_blank" rel="noopener"><i class="fas fa-paper-plane"></i>Apply now</a></div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="sec" id="publications">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Publications</span><h2>Journal articles &amp; <span class="gt">patents</span></h2><p>Full list on <a href="https://scholar.google.com/citations?hl=en&amp;user=McmMUDcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener" style="color:var(--crim);font-weight:600">Google Scholar <i class="fas fa-up-right-from-square" style="font-size:.75em"></i></a></p></div>
+    <div class="scholar reveal">
+      <div><b class="gt" data-n="1095">1,095</b><span>citations</span></div>
+      <div><b class="gt" data-n="643">643</b><span>since 2021</span></div>
+      <div><b class="gt" data-n="15">15</b><span>h-index</span></div>
+      <div><b class="gt" data-n="16">16</b><span>i10-index</span></div>
+    </div>
+    <div class="subh reveal"><h3><i class="fas fa-image"></i>Figures from our papers</h3><small>Click to enlarge</small></div>
+    <div class="figs" id="figs"></div>
+    <div class="subh"><h3><i class="fas fa-file-lines"></i>All publications</h3></div>
+    <div class="ptools">
+      <div class="s"><i class="fas fa-search"></i><input id="q" type="search" placeholder="Search title, author, journal" aria-label="Search publications"></div>
+      <div class="chips" id="yf" role="group" aria-label="Filter by type"><button type="button" data-v="all" class="on">All</button><button type="button" data-v="j">Articles</button><button type="button" data-v="p">Patents</button></div>
+      <span class="c" id="cnt"></span>
+    </div>
+    <div class="pubs" id="pubs"></div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="sec alt" id="resources">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Resources</span><h2>Useful <span class="gt">tools</span> for this field</h2><p>Free databases, software and interactive learning tools we use and recommend to students working on nanoparticles, colloids and molecular modelling.</p></div>
+    <div class="tabs" id="tabs" role="tablist">
+      <button type="button" role="tab" class="on" data-t="r1"><i class="fas fa-cubes"></i>Crystallography &amp; materials data</button>
+      <button type="button" role="tab" data-t="r2"><i class="fas fa-microscope"></i>Microscopy &amp; particle analysis</button>
+      <button type="button" role="tab" data-t="r3"><i class="fas fa-dna"></i>Molecular modelling &amp; drug design</button>
+    </div>
+    <div class="res" id="r1">
+      <a href="https://jp-minerals.org/vesta/en/" target="_blank" rel="noopener"><i class="fas fa-cube"></i><div><b>VESTA</b><span>Visualise crystal structures, lattice planes and electron densities</span></div></a>
+      <a href="https://www.crystallography.net/cod/" target="_blank" rel="noopener"><i class="fas fa-database"></i><div><b>Crystallography Open Database</b><span>Free CIF files for indexing XRD and SAED patterns</span></div></a>
+      <a href="https://next-gen.materialsproject.org/" target="_blank" rel="noopener"><i class="fas fa-layer-group"></i><div><b>Materials Project</b><span>Computed structures, phase stability and properties</span></div></a>
+      <a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS/wiki/InstallWindows" target="_blank" rel="noopener"><i class="fas fa-chart-line"></i><div><b>GSAS-II</b><span>Rietveld refinement of powder diffraction data</span></div></a>
+      <a href="https://www.olexsys.org/olex2/" target="_blank" rel="noopener"><i class="fas fa-shapes"></i><div><b>Olex2</b><span>Crystal structure solution and refinement</span></div></a>
+      <a href="https://shelx.uni-goettingen.de/" target="_blank" rel="noopener"><i class="fas fa-terminal"></i><div><b>SHELX</b><span>Programs for crystal structure determination</span></div></a>
+      <a href="http://abulafia.mt.ic.ac.uk/shannon/ptable.php" target="_blank" rel="noopener"><i class="fas fa-table-cells"></i><div><b>Shannon ionic radii</b><span>Interactive periodic table of effective ionic radii</span></div></a>
+      <a href="https://www.crct.polymtl.ca/fact/documentation/FTsalt/FTsalt_Figs.htm" target="_blank" rel="noopener"><i class="fas fa-chart-area"></i><div><b>FactSage salt phase diagrams</b><span>Phase diagrams for salt systems</span></div></a>
+      <a href="https://webbook.nist.gov/chemistry/" target="_blank" rel="noopener"><i class="fas fa-book"></i><div><b>NIST Chemistry WebBook</b><span>Thermochemical and spectroscopic data</span></div></a>
+    </div>
+    <div class="res" id="r2" hidden>
+      <a href="https://imagej.net/software/fiji/" target="_blank" rel="noopener"><i class="fas fa-ruler-combined"></i><div><b>Fiji / ImageJ</b><span>Measure particle size distributions from TEM images</span></div></a>
+      <a href="https://www.doitpoms.ac.uk/tlplib/miller_indices/lattice_draw.php" target="_blank" rel="noopener"><i class="fas fa-draw-polygon"></i><div><b>Draw your own lattice planes</b><span>Interactive Miller-index plane drawer</span></div></a>
+      <a href="https://www.doitpoms.ac.uk/" target="_blank" rel="noopener"><i class="fas fa-chalkboard"></i><div><b>DoITPoMS</b><span>Interactive teaching modules on materials science</span></div></a>
+    </div>
+    <div class="res" id="r3" hidden>
+      <a href="https://www.rcsb.org/" target="_blank" rel="noopener"><i class="fas fa-dna"></i><div><b>RCSB Protein Data Bank</b><span>Protein and receptor structures for docking</span></div></a>
+      <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener"><i class="fas fa-flask"></i><div><b>PubChem</b><span>Ligand structures, SDF files and properties</span></div></a>
+      <a href="https://openbabel.org/" target="_blank" rel="noopener"><i class="fas fa-right-left"></i><div><b>Open Babel</b><span>Convert between chemical file formats</span></div></a>
+      <a href="https://vina.scripps.edu/" target="_blank" rel="noopener"><i class="fas fa-puzzle-piece"></i><div><b>AutoDock Vina</b><span>Fast protein–ligand docking</span></div></a>
+      <a href="https://www.gromacs.org/" target="_blank" rel="noopener"><i class="fas fa-wave-square"></i><div><b>GROMACS</b><span>Molecular dynamics simulation package</span></div></a>
+      <a href="https://discover.3ds.com/discovery-studio-visualizer-download" target="_blank" rel="noopener"><i class="fas fa-eye"></i><div><b>Discovery Studio Visualizer</b><span>2D and 3D protein–ligand interaction maps</span></div></a>
+      <a href="https://pymol.org/" target="_blank" rel="noopener"><i class="fas fa-palette"></i><div><b>PyMOL</b><span>Molecular visualisation and figure making</span></div></a>
+      <a href="https://avogadro.cc/" target="_blank" rel="noopener"><i class="fas fa-atom"></i><div><b>Avogadro</b><span>Build and optimise small molecules</span></div></a>
+      <a href="http://www.swissadme.ch/" target="_blank" rel="noopener"><i class="fas fa-pills"></i><div><b>SwissADME</b><span>Drug-likeness and pharmacokinetics prediction</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Funding</span><h2>Sponsored <span class="gt">projects</span></h2></div>
+    <div class="proj">
+      <article class="pj reveal"><div class="top"><span class="yr gt">2024–27</span><span class="st go">Ongoing</span></div><h3>Nano-hybrid metal catalysts for hydrogen generation</h3><small>Co-PI · CRS/2023-24/01/1040</small><span class="ag"><i class="fas fa-landmark"></i>UGC-DAE-CSR Indore</span></article>
+      <article class="pj reveal"><div class="top"><span class="yr gt">2023–26</span><span class="st go">Ongoing</span></div><h3>Morphology tuning of heterostructured Pd/magnetic nanoparticles for electro-oxidation catalysis</h3><small>PI · CRS/2022-23/01/659</small><span class="ag"><i class="fas fa-landmark"></i>UGC-DAE-CSR Indore</span></article>
+      <article class="pj reveal"><div class="top"><span class="yr gt">2023–26</span><span class="st go">Ongoing</span></div><h3>Cenosphere-based prosthetic and bone implants by metal and metal-oxide coating</h3><small>Co-PI · CRS/2022-23/01/723</small><span class="ag"><i class="fas fa-landmark"></i>UGC-DAE-CSR Indore</span></article>
+      <article class="pj reveal"><div class="top"><span class="yr gt">2017–20</span><span class="st done">Completed</span></div><h3>Shape-engineered nanoparticles conjugated with drugs for cancer therapy</h3><small>PI · ₹28 lakh</small><span class="ag"><i class="fas fa-landmark"></i>SERB Core Research Grant</span></article>
+      <article class="pj reveal"><div class="top"><span class="yr gt">2017–19</span><span class="st done">Completed</span></div><h3>Removal of water from nitrocellulose waste and spent acid</h3><small>Co-PI · ₹11.73 lakh</small><span class="ag"><i class="fas fa-industry"></i>Ordnance Factory Bhandara</span></article>
+      <article class="pj reveal"><div class="top"><span class="yr gt">2014–15</span><span class="st done">Completed</span></div><h3>Stable nanofluids as coolant for automobile radiators</h3><small>PI · ₹5.5 lakh</small><span class="ag"><i class="fas fa-building"></i>SSN Trust, Chennai</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section class="sec alt" id="teaching">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Teaching</span><h2><span class="gt">Courses</span> taught</h2><p>Undergraduate and postgraduate courses taught by Prof. Ravikumar.</p></div>
+    <div class="teach">
+      <div class="inst reveal"><div class="hd"><i class="fas fa-university"></i><div><h3>IIT Dharwad</h3><span class="w">2025 – present</span></div></div><div class="courses">
+        <div class="course"><svg aria-hidden="true"><use href="#i-mass"/></svg><span>Mass Transfer</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-lattice"/></svg><span>Materials Science and Engineering</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-colloid"/></svg><span>Colloids and Interfacial Science</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-safety"/></svg><span>Safety and Risk Analysis</span></div>
+      </div></div>
+      <div class="inst reveal"><div class="hd"><i class="fas fa-university"></i><div><h3>VNIT Nagpur</h3><span class="w">2015 – 2024</span></div></div><div class="courses">
+        <div class="course"><svg aria-hidden="true"><use href="#i-lattice"/></svg><span>Materials Science and Engineering</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-flask"/></svg><span>Chemical Technology</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-safety"/></svg><span>Safety and Risk Analysis</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-interface"/></svg><span>Interfacial Science and Engineering<small>Postgraduate</small></span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-beaker"/></svg><span>Mass Transfer I Laboratory</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-beaker"/></svg><span>Mass Transfer II Laboratory</span></div>
+      </div></div>
+      <div class="inst reveal"><div class="hd"><i class="fas fa-school"></i><div><h3>SSN College of Engineering</h3><span class="w">2014 – 2015</span></div></div><div class="courses">
+        <div class="course"><svg aria-hidden="true"><use href="#i-energy"/></svg><span>Energy Engineering</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-leaf"/></svg><span>Environmental Engineering</span></div>
+      </div></div>
+      <div class="inst reveal"><div class="hd"><i class="fas fa-school"></i><div><h3>Vivekanandhaa College of Engineering</h3><span class="w">2004 – 2005</span></div></div><div class="courses">
+        <div class="course"><svg aria-hidden="true"><use href="#i-reactor"/></svg><span>Chemical Reaction Engineering</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-calc"/></svg><span>Process Calculations</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-mass"/></svg><span>Mass Transfer</span></div>
+        <div class="course"><svg aria-hidden="true"><use href="#i-fluid"/></svg><span>Unit Operations and Fluid Mechanics Laboratory</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Gallery</span><h2>Events &amp; <span class="gt">outreach</span></h2></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+<dialog class="lb" id="lb"><button class="x" id="lbx" aria-label="Close">×</button><img id="lbi" alt=""><p id="lbc"></p></dialog>
+
+<!-- NEWS -->
+<section class="sec alt" id="news">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">News</span><h2>Latest <span class="gt">updates</span></h2></div>
+    <ul class="tl">
+      <li class="reveal"><span class="d">Aug 2026</span><b>Welcome, Poorvaja</b><p>Ms. Poorvaja V G joined the lab as a PhD scholar.</p></li>
+      <li class="reveal"><span class="d">2026</span><b>RSC Advances</b><p>Graphene–silver hybrid nanoparticle phase change materials for lithium-ion battery thermal management.</p></li>
+      <li class="reveal"><span class="d">2026</span><b>Journal of Food Process Engineering</b><p>Review of protein-based edible films and nanocomposites, co-authored by PhD scholar Santhosh Kumar P.</p></li>
+      <li class="reveal"><span class="d">Oct 2025</span><b>ANRF National Symposium on Smart Interfaces</b><p>Held at IIT Dharwad, 9–10 October 2025.</p></li>
+      <li class="reveal"><span class="d">Jan 2025</span><b>Prof. Ravikumar joins IIT Dharwad</b><p>Prof. C. Ravikumar joined the Department of Chemical Engineering, IIT Dharwad, as Associate Professor.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Contact</span><h2>Get in <span class="gt">touch</span></h2><p>Interested in nanoparticles? Come work with us.</p></div>
+    <div class="contact">
+      <div class="cinfo">
+        <div class="ci reveal"><i class="fas fa-envelope"></i><div><h4>Email</h4><a href="mailto:ravikumar@iitdh.ac.in">ravikumar@iitdh.ac.in</a></div></div>
+        <div class="ci reveal"><i class="fas fa-phone"></i><div><h4>Phone</h4><p>+91 836 230 9741 · Ext. 1095</p></div></div>
+        <div class="ci reveal"><i class="fas fa-door-open"></i><div><h4>Office</h4><p>A2-220, Academic Block-II (Science)</p></div></div>
+        <div class="ci reveal"><i class="fas fa-location-dot"></i><div><h4>Address</h4><p>Department of Chemical Engineering, IIT Dharwad, Permanent Campus, Chikkamalligawad, Dharwad 580 011, Karnataka, India</p><a href="https://www.google.com/maps/search/?api=1&amp;query=IIT+Dharwad+Permanent+Campus" target="_blank" rel="noopener" style="color:var(--crim);font-weight:600">Open in Maps <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="ci reveal"><i class="fas fa-user-graduate"></i><div><h4>PhD admissions</h4><a href="https://www.iitdh.ac.in/phd" target="_blank" rel="noopener">Apply through IIT Dharwad</a></div></div>
+      </div>
+      <form class="form reveal" id="cform">
+        <h3>Send a message</h3>
+        <p class="n">This opens your email app with the message ready to send.</p>
+        <input name="n" type="text" placeholder="Your name" required aria-label="Your name">
+        <input name="e" type="email" placeholder="Your email" required aria-label="Your email">
+        <input name="s" type="text" placeholder="Subject (e.g. PhD enquiry)" aria-label="Subject">
+        <textarea name="m" placeholder="Your message" required aria-label="Your message"></textarea>
+        <button class="btn grad" type="submit"><i class="fas fa-paper-plane"></i>Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><div class="fb"><img src="assets/logo/cnl-logo-mark.svg" alt="CNL logo"><b>Colloids &amp; Nanomaterials Lab</b></div><p>Department of Chemical Engineering, Indian Institute of Technology Dharwad. Understanding and engineering the nanoscale.</p>
+        <div class="soc">
+          <a href="mailto:ravikumar@iitdh.ac.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=McmMUDcAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://www.linkedin.com/in/ravikumar-c-b6a07531/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div></div>
+      <div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#pi">PI</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li></ul></div>
+      <div><h4>More</h4><ul><li><a href="#resources">Resources</a></li><li><a href="#projects">Projects</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#news">News</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:ravikumar@iitdh.ac.in">ravikumar@iitdh.ac.in</a></li><li><a href="#contact">+91 836 230 9741 · Ext. 1095</a></li><li><a href="#contact">Chikkamalligawad, Dharwad 580 011</a></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 Colloids and Nanomaterials Lab, IIT Dharwad</span><a href="https://www.iitdh.ac.in" target="_blank" rel="noopener">iitdh.ac.in</a></div>
+  </div>
+</footer>
+<button class="totop" id="totop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+/* [year, type, title, authors, journal, vol/pages, doi, patent no., cover] */
+const PUBS=[
+ [2026,'j','Graphene-silver hybrid nanoparticle embedded phase change materials for enhanced thermal management of lithium-ion batteries','B. Akshay, F. S. S. Mumthas, M. Mohan, V. B. Rajeswari, C. Ravikumar','RSC Advances','','10.1039/D5RA09895E','','rsc26'],
+ [2026,'j','Identification of fulvestrant analogues for estrogen receptor alpha binding in breast cancer using molecular docking and molecular dynamics','A. Balpande, A. Dashputra, N. Khanwani, Y. Therkar, A. Wasewar, G. C. Patil, C. Ravikumar','Discover Chemistry','','10.1007/s44371-026-00485-z','','disc26'],
+ [2026,'j','Protein-based edible films and nanocomposites: a comprehensive review of sources, advanced fabrication strategies and applications','P. A. Pawase, Santhosh Kumar Prabudoss, Z. Sherin, P. Saha, Ravikumar Chettiannan, O. Sahni, S. J. Veer, R. Raghunathan, B. P. Vibhute, O. Bashir','Journal of Food Process Engineering','49, e70626','10.1111/jfpe.70626','','jfpe26'],
+ [2026,'j','Comparative experimental study of natural non-toxic solvents for sustainable gallic acid separation','K. L. W. Anuj Khekde, A. S. Thakre, C. Ravikumar, D. Z. Shende','Hungarian Journal of Industry and Chemistry','','','','hjic26'],
+ [2025,'p','TiO₂ nanoparticles enhanced formalin fixative to reduce formaldehyde evaporation and mitigate its harmful effects','M. Hiwarkar, S. Tajane, O. K. Taywade, N. Puri, C. Ravikumar','Indian Patent','','','','patent'],
+ [2025,'j','Reactive separation of nicotinic acid using tri-n-butyl phosphate in ethyl acetate','V. Kolhatkar, A. Thakre, J. Ekhe, D. Shende, C. Ravikumar, K. Wasewar','Jordanian Journal of Engineering and Chemical Industries','8(3), 258–271','10.48103/jjeci8232025','','jjeci25'],
+ [2024,'j','Tuning the morphology of heterostructured Pd/magnetite nanoparticles for enhanced catalytic electro-oxidation of formic acid','P. K. Narnaware, A. S. Manwar, K. L. Wasewar, D. Sarker, C. Ravikumar','Industrial & Engineering Chemistry Research','63(46), 20099–20112','10.1021/acs.iecr.4c02612','','iecr24'],
+ [2024,'j','Evaluation of tamoxifen analogues as potential estrogen receptor alpha inhibitors for breast cancer treatment: a computational approach','A. Dashputra, Y. Therkar, A. Balpande, N. Khanwani, A. Wasewar, G. C. Patil, A. M. Kuthe, S. C. Tripathi, S. Deshpande, S. Kannaiyan, C. Ravikumar','Journal of Molecular Liquids','414, 126209','10.1016/j.molliq.2024.126209','','jml24'],
+ [2023,'j','Unveiling the formation mechanism of polydisperse iron oxide nanoparticles in coprecipitation route','C. Ravikumar','Journal of Crystal Growth','624, 127419','10.1016/j.jcrysgro.2023.127419','','jcg23'],
+ [2023,'j','Mechanism of nanoparticle formation in the liquid-phase thermal decomposition method','A. Y. Singapati, C. Ravikumar','Langmuir','39(27), 9325–9342','10.1021/acs.langmuir.3c00676','','lang23'],
+ [2023,'j','A thermodynamic model to predict the minimum energy required for engulfment of linearly aggregated spherical nanoparticles by tubular vesicles','U. Patil, C. Ravikumar','Materialia','27, 101663','10.1016/j.mtla.2022.101663','','mat23'],
+ [2023,'j','Influence of the molecular weight of poly(ethylene glycol) on the aqueous dispersion state of magnetic nanoparticles: experiments and Monte Carlo simulation','A. Y. Singapati, V. Muthuraja, A. M. Kuthe, C. Ravikumar','Journal of Cluster Science','34, 1975–1987','10.1007/s10876-022-02360-0','','jcs23'],
+ [2023,'j','Pteroyl-γ-L-glutamate/Pluronic® F68 modified polymeric micelles loaded with docetaxel for targeted delivery and reduced toxicity','N. Rarokar, R. Agrawal, S. Yadav, P. Khedekar, C. Ravikumar, D. Telange, S. Gurav','Journal of Molecular Liquids','369, 120842','10.1016/j.molliq.2022.120842','','jml23'],
+ [2022,'j','Integrated computational approach towards identification of HSPG and ACE2 mimicking moieties for SARS-CoV-2 inhibition','S. Sreekumar, A. M. Kuthe, S. C. Tripathi, G. C. Patil, C. Ravikumar','Journal of Molecular Liquids','367, 120566','10.1016/j.molliq.2022.120566','','jml22'],
+ [2022,'j','Influence of solvents, reaction temperature and aging time on the morphology of iron oxide nanoparticles','P. K. Narnaware, C. Ravikumar','Inorganic and Nano-Metal Chemistry','52, 922–936','10.1080/24701556.2021.2025107','','inmc22'],
+ [2021,'j','Meloxicam encapsulated nanostructured colloidal self-assembly for evaluating antitumor and anti-inflammatory efficacy in 3D printed scaffolds','N. R. Rarokar, C. Ravikumar, S. Gurav, P. Khedekar','Journal of Biomedical Materials Research Part A','109(8), 1441–1456','10.1002/jbm.a.37135','','jbmr21'],
+ [2020,'j','Mechanistic insights into the formation and growth of anisotropic-shaped wüstite–spinel core–shell iron oxide nanoparticles in a coordinating solvent','P. K. Narnaware, C. Ravikumar','The Journal of Physical Chemistry C','124(45), 25010–25027','10.1021/acs.jpcc.0c05606','','jpcc20'],
+ [2019,'p','A method of preparing iron oxide nanoparticles of controlled shapes and a tunable size','P. K. Narnaware, C. Ravikumar','Indian Patent','Patent Office Journal No. 41/2019, published 11 Oct 2019','','Application No. 201921036489 A','patent'],
+ [2017,'j','Microwave assisted fast pyrolysis of corn cob, corn stover, saw dust and rice straw: experimental investigation on bio-oil yield and high heating values','C. Ravikumar, P. Senthil Kumar, S. K. Subhashni, P. V. Tejaswini, V. Varshini','Sustainable Materials and Technologies','11, 19–27','10.1016/j.susmat.2016.12.003','','smt17'],
+ [2017,'j','Prediction and interpretation of adsorption parameters for the sequestration of methylene blue dye from aqueous solution using microwave assisted corncob activated carbon','V. Tharaneedhar, P. Senthil Kumar, A. Saravanan, C. Ravikumar, V. Jaikumar','Sustainable Materials and Technologies','11, 1–11','10.1016/j.susmat.2016.11.001','','smt17'],
+ [2017,'j','Computation of adsorption parameters for the removal of dye from wastewater by microwave assisted sawdust: theoretical and experimental analysis','S. Suganya, P. Senthil Kumar, A. Saravanan, P. Sundar Rajan, C. Ravikumar','Environmental Toxicology and Pharmacology','50, 45–57','10.1016/j.etap.2017.01.014','','etap17'],
+ [2017,'j','Optimization of adsorptive removal of α-toluic acid by CaO₂ nanoparticles using response surface methodology','S. S. Madan, K. L. Wasewar, C. Ravikumar','Resource-Efficient Technologies','3, 329–336','10.1016/j.reffit.2017.03.004','','ret17'],
+ [2016,'j','Adsorption kinetics, thermodynamics and equilibrium of α-toluic acid onto calcium peroxide nanoparticles','S. S. Madan, K. L. Wasewar, C. Ravikumar','Advanced Powder Technology','27, 2112–2120','10.1016/j.apt.2016.07.024','','apt16'],
+ [2012,'j','Aggregation of dextran coated magnetic nanoparticles in aqueous medium: experiments and Monte Carlo simulation','C. Ravikumar, S. Kumar, R. Bandyopadhyaya','Colloids and Surfaces A','403, 1–6','10.1016/j.colsurfa.2012.02.007','','csa12'],
+ [2011,'j','Mechanistic study on magnetite nanoparticle formation by thermal decomposition and coprecipitation routes','C. Ravikumar, R. Bandyopadhyaya','The Journal of Physical Chemistry C','115(5), 1380–1387','10.1021/jp105304w','','jpcc11'],
+ [2010,'j','State of dispersion of magnetic nanoparticles in an aqueous medium: experiments and Monte Carlo simulation','S. Kumar, C. Ravikumar, R. Bandyopadhyaya','Langmuir','26(23), 18320–18330','10.1021/la1017196','','lang10'],
+ [2010,'j','Formation of nanoparticles of water-soluble molecules: experiments and mechanism','C. Ravikumar, S. K. Singh, R. Bandyopadhyaya','The Journal of Physical Chemistry C','114(19), 8806–8813','10.1021/jp1009934','','jpcc10'],
+ [2007,'j','CdS–ZnS core–shell nanoparticle formation: experiment, mechanism, and simulation','M. Ethayaraja, C. Ravikumar, D. Muthukumaran, K. Dutta, R. Bandyopadhyaya','The Journal of Physical Chemistry C','111(8), 3246–3252','10.1021/jp066066j','','jpcc07'],
+ [2007,'j','Discrete–continuous hybrid simulation of monodisperse nanoparticle formation','C. Ravikumar, M. Ethayaraja, R. Bandyopadhyaya','International Journal of Chemical Sciences','5, 1764–1774','','','ijcs07']
+];
+const FIGS=[
+ ['pf-1.jpg','Shape evolution of wüstite–spinel core–shell nanocubes and octopods','J. Phys. Chem. C 2020','10.1021/acs.jpcc.0c05606'],
+ ['pf-2.jpg','Growth by coagulation versus monomeric addition','Langmuir 2023','10.1021/acs.langmuir.3c00676'],
+ ['pf-3.jpg','Folate-receptor targeting by FA–F68 docetaxel micelles','J. Mol. Liq. 2023','10.1016/j.molliq.2022.120842'],
+ ['pf-4.jpg','Nanoparticles with HSPG and ACE2 mimics blocking SARS-CoV-2','J. Mol. Liq. 2022','10.1016/j.molliq.2022.120566'],
+ ['pf-5.jpg','Tamoxifen analogues docked in the estrogen receptor-α pocket','J. Mol. Liq. 2024','10.1016/j.molliq.2024.126209'],
+ ['pf-6.jpg','Tubular membrane engulfing linearly aggregated nanoparticles','Materialia 2023','10.1016/j.mtla.2022.101663'],
+ ['pf-7.jpg','HR-TEM of polydisperse Fe₃O₄ from coprecipitation','J. Cryst. Growth 2023','10.1016/j.jcrysgro.2023.127419'],
+ ['pf-8.jpg','3D printing of meloxicam-loaded scaffolds','J. Biomed. Mater. Res. A 2021','10.1002/jbm.a.37135'],
+ ['pf-9.jpg','TEM and SAED of PEG-coated iron oxide nanoparticles','J. Cluster Sci. 2023','10.1007/s10876-022-02360-0']
+];
+const GAL=[
+ ['g-anrf-welcome.jpg','ANRF National Symposium on Smart Interfaces, IIT Dharwad, 9–10 October 2025'],
+ ['g-anrf-talk.jpg','Prof. C. Ravikumar addressing the ANRF National Symposium'],
+ ['g-anrf-felicitation.jpg','Felicitation at the ANRF National Symposium'],
+ ['g-anrf-poster.jpg','Poster session at the ANRF National Symposium'],
+ ['g-anrf-panel.jpg','Panel discussion at the ANRF National Symposium'],
+ ['g-pillai.jpg','Visit by Prof. Dipin S. Pillai (IIT Kanpur), 23 October 2025'],
+ ['g-nanomedicine.jpg','Research talk on advances in nanomedicine, 19 September 2025'],
+ ['g-safety.jpg','Invited talk on safe use of nanomaterials in biomedical applications, 28 March 2025'],
+ ['g-workshop-vnit.jpg','Expert lecture, 6th National Workshop on Research Conception, Technique and Publication, VNIT Nagpur'],
+ ['g-orientation.jpg','Orientation Programme 2025: Net Zero Campus 2030'],
+ ['g-kletu.jpg','GATE & JAM outreach talk at KLE Technological University'],
+ ['g-gate-talk.jpg','GATE & JAM outreach talk to engineering students'],
+ ['g-school-talk.jpg','“From School to IIT”: KLE School (Hubballi) Class 9 visit'],
+ ['g-industrial.jpg','Industrial visit to Shilpa Biologicals'],
+ ['g-school-lab.jpg','KLE School students in the Chemical Engineering laboratories']
+];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const bold=a=>esc(a).replace(/(C\. Ravikumar|Ravikumar Chettiannan|Santhosh Kumar Prabudoss)/g,'<strong>$1</strong>');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* drawer */
+const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),burger=document.getElementById('burger');
+function setDrawer(o){drawer.classList.toggle('open',o);scrim.classList.toggle('show',o);burger.setAttribute('aria-expanded',o)}
+burger.onclick=()=>setDrawer(true);
+document.getElementById('dx').onclick=scrim.onclick=()=>setDrawer(false);
+document.querySelectorAll('#dnav a').forEach(a=>a.addEventListener('click',()=>setDrawer(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape')setDrawer(false)});
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc');
+function openLB(src,cap){lbi.src=src;lbi.alt=cap;lbc.textContent=cap;if(lb.showModal)lb.showModal()}
+document.getElementById('lbx').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+
+/* publication figures */
+const figs=document.getElementById('figs');
+figs.innerHTML=FIGS.map((f,i)=>'<button type="button" class="reveal" data-i="'+i+'"><div class="fi"><img src="assets/img/'+f[0]+'" alt="'+esc(f[1])+'" loading="lazy"></div><div class="cap"><b>'+esc(f[1])+'</b><span>'+esc(f[2])+'</span></div></button>').join('');
+figs.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const f=FIGS[b.dataset.i];openLB('assets/img/'+f[0],f[1]+' · '+f[2]+' · doi:'+f[3])});
+
+/* publication list */
+let ptype='all';
+function renderPubs(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const rows=PUBS.filter(p=>(ptype==='all'||p[1]===ptype)&&(!q||(p[2]+' '+p[3]+' '+p[4]+' '+p[0]+' '+p[7]).toLowerCase().includes(q)));
+  document.getElementById('pubs').innerHTML=rows.map(p=>{
+    let ref='';
+    if(p[1]==='p') ref=p[7]?'<span class="nodoi">'+esc(p[7])+'</span>':'';
+    else if(p[6]) ref='<a class="doi" href="https://doi.org/'+p[6]+'" target="_blank" rel="noopener"><i class="fas fa-link"></i>doi:'+p[6]+'</a>';
+    return '<div class="pub"><img class="cov" src="assets/covers/'+p[8]+'.jpg" alt="'+esc(p[4])+' cover" loading="lazy"><div>'+
+    '<span class="y'+(p[0]>=2025?' new':'')+'">'+p[0]+'</span>'+
+    '<div class="t">'+(p[1]==='p'?'<span class="pat">Patent</span>':'')+esc(p[2])+'</div>'+
+    '<div class="a">'+bold(p[3])+'</div>'+
+    '<div class="jn"><i>'+esc(p[4])+'</i>'+(p[5]?', '+esc(p[5]):'')+'</div>'+ref+'</div></div>'}).join('')||'<p style="padding:20px 0;color:var(--muted)">No publications match that search.</p>';
+  document.getElementById('cnt').textContent=rows.length+' / '+PUBS.length;
+}
+document.getElementById('q').addEventListener('input',renderPubs);
+document.querySelectorAll('#yf button').forEach(b=>b.onclick=()=>{ptype=b.dataset.v;document.querySelectorAll('#yf button').forEach(x=>x.classList.toggle('on',x===b));renderPubs()});
+renderPubs();
+
+/* resource tabs */
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>{x.classList.toggle('on',x===b);document.getElementById(x.dataset.t).hidden=x!==b})});
+
+/* gallery */
+const gal=document.getElementById('gal');
+gal.innerHTML=GAL.map((g,i)=>'<button type="button" class="reveal" data-i="'+i+'"><img src="assets/img/'+g[0]+'" alt="'+esc(g[1])+'" loading="lazy"><span>'+esc(g[1])+'</span></button>').join('');
+gal.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=GAL[b.dataset.i];openLB('assets/img/'+g[0],g[1])});
+
+/* contact form: compose an email */
+document.getElementById('cform').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target;
+  const subj=f.s.value.trim()||'Enquiry from the CNL website';
+  const body=f.m.value+'\n\n'+f.n.value+'\n'+f.e.value;
+  location.href='mailto:ravikumar@iitdh.ac.in?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+});
+
+/* scroll reveal and number counters */
+const rio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');rio.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>reduce?el.classList.add('in'):rio.observe(el));
+function count(el){const n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now(),d=1600;
+  (function step(t){const k=Math.min(1,(t-t0)/d),v=Math.round(n*(1-Math.pow(1-k,3)));el.textContent=v.toLocaleString('en-US')+s;if(k<1)requestAnimationFrame(step)})(t0)}
+const cio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){count(en.target);cio.unobserve(en.target)}}),{threshold:.6});
+if(!reduce)document.querySelectorAll('[data-n]').forEach(el=>cio.observe(el));
+
+/* highlight current section in nav */
+const ids=['home','about','research','pi','people','publications','resources','projects','teaching','gallery','news','contact'];
+const navLinks=[...document.querySelectorAll('#menu a,#dnav a')];
+const nio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
+ids.forEach(id=>{const el=document.getElementById(id);if(el)nio.observe(el)});
+
+/* back to top */
+const tt=document.getElementById('totop');
+addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>700),{passive:true});
+tt.onclick=()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+
+/* hero particles: drifting dots joined by faint lines, like a colloid */
+(function(){
+  const c=document.getElementById('particles'),x=c.getContext('2d');let w,h,pts=[],run=true;
+  function size(){const r=devicePixelRatio||1;w=c.clientWidth;h=c.clientHeight;c.width=w*r;c.height=h*r;x.setTransform(r,0,0,r,0,0);
+    const n=Math.min(90,Math.round(w*h/14000));pts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5,r:1+Math.random()*2.4}))}
+  function draw(){x.clearRect(0,0,w,h);
+    for(let i=0;i<pts.length;i++){const p=pts[i];
+      if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+      x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(255,255,255,.75)';x.fill();
+      for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle='rgba(255,255,255,'+(.22*(1-d/130))+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}
+    if(run&&!reduce)requestAnimationFrame(draw)}
+  size();draw();addEventListener('resize',()=>{size();if(reduce)draw()});
+  new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!run){run=true;draw()}run=v}).observe(c);
+})();
+</script>
+</body>
+</html>
