@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" font-family="Poppins,Segoe UI,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <linearGradient id="air" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7d2fe"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient>
+    <linearGradient id="fuel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fecdd3"/><stop offset="1" stop-color="#a3162b"/></linearGradient>
+    <radialGradient id="A" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#6ee7b7"/><stop offset="1" stop-color="#047857"/></radialGradient>
+    <radialGradient id="B" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#1e3a8a"/></radialGradient>
+    <radialGradient id="O" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#fda4af"/><stop offset="1" stop-color="#be123c"/></radialGradient>
+    <marker id="ar" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#374151"/></marker>
+  </defs>
+  <rect width="480" height="300" fill="url(#bg)"/>
+  <rect x="40" y="62" width="70" height="186" rx="18" fill="url(#air)"/>
+  <rect x="370" y="62" width="70" height="186" rx="18" fill="url(#fuel)"/>
+  <g fill="#fff" opacity=".8"><circle cx="62" cy="200" r="4"/><circle cx="85" cy="180" r="4"/><circle cx="70" cy="150" r="4"/><circle cx="92" cy="120" r="4"/><circle cx="392" cy="205" r="4"/><circle cx="415" cy="175" r="4"/><circle cx="398" cy="140" r="4"/><circle cx="420" cy="110" r="4"/></g>
+  <text x="75" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">Air reactor</text>
+  <text x="405" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="#a3162b">Fuel reactor</text>
+  <path d="M112 90 C 180 45, 300 45, 366 90" fill="none" stroke="#374151" stroke-width="2.5" marker-end="url(#ar)"/>
+  <path d="M368 222 C 300 266, 180 266, 114 222" fill="none" stroke="#374151" stroke-width="2.5" marker-end="url(#ar)"/>
+  <text x="240" y="44" text-anchor="middle" font-size="15" fill="#1f2937">oxidised carrier ABO₃</text>
+  <text x="240" y="282" text-anchor="middle" font-size="15" fill="#1f2937">reduced carrier ABO₃₋δ</text>
+  <g font-size="13.8" fill="#1f2937"><text x="75" y="268" text-anchor="middle">air in</text><text x="75" y="22" text-anchor="middle">N₂ out</text><text x="405" y="268" text-anchor="middle">fuel in</text><text x="405" y="22" text-anchor="middle">CO₂ + H₂O out</text></g>
+  <g stroke="#9ca3af" stroke-width="2" fill="none"><path d="M200 200 L260 200 L290 175 L230 175 Z"/><path d="M200 140 L260 140 L290 115 L230 115 Z"/><path d="M200 200 V140 M260 200 V140 M290 175 V115 M230 175 V115"/></g>
+  <circle cx="245" cy="158" r="12" fill="url(#B)"/>
+  <g><circle cx="200" cy="200" r="9" fill="url(#A)"/><circle cx="260" cy="200" r="9" fill="url(#A)"/><circle cx="290" cy="175" r="9" fill="url(#A)"/><circle cx="230" cy="175" r="9" fill="url(#A)"/><circle cx="200" cy="140" r="9" fill="url(#A)"/><circle cx="260" cy="140" r="9" fill="url(#A)"/><circle cx="290" cy="115" r="9" fill="url(#A)"/><circle cx="230" cy="115" r="9" fill="url(#A)"/></g>
+  <g><circle cx="245" cy="188" r="6" fill="url(#O)"/><circle cx="245" cy="128" r="6" fill="url(#O)"/><circle cx="230" cy="158" r="6" fill="url(#O)"/><circle cx="260" cy="158" r="6" fill="url(#O)"/><circle cx="215" cy="170" r="6" fill="url(#O)"/><circle cx="275" cy="146" r="6" fill="url(#O)"/></g>
+  <g font-size="13.8" fill="#1f2937"><circle cx="196" cy="230" r="5" fill="url(#A)"/><text x="204" y="234">A</text><circle cx="232" cy="230" r="5" fill="url(#B)"/><text x="240" y="234">B</text><circle cx="268" cy="230" r="5" fill="url(#O)"/><text x="276" y="234">O</text></g>
+</svg>

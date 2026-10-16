@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" font-family="Poppins,Segoe UI,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecfdf5"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <radialGradient id="core" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#6b7fd6"/><stop offset="1" stop-color="#1e3a8a"/></radialGradient>
+    <radialGradient id="cell" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#f7b6c0"/><stop offset="1" stop-color="#c2364d"/></radialGradient>
+    <linearGradient id="vessel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbd5db"/><stop offset=".5" stop-color="#fdeef0"/><stop offset="1" stop-color="#fbd5db"/></linearGradient>
+    <g id="np"><circle r="15" fill="none" stroke="#059669" stroke-width="3" stroke-dasharray="3 3"/><circle r="9" fill="url(#core)"/><circle cx="-14" cy="-6" r="2.6" fill="#f5b700"/><circle cx="12" cy="-9" r="2.6" fill="#f5b700"/><circle cx="4" cy="14" r="2.6" fill="#f5b700"/><circle cx="-8" cy="12" r="2.6" fill="#f5b700"/></g>
+  </defs>
+  <rect width="480" height="300" fill="url(#bg)"/>
+  <path d="M-10 120 C 120 90, 220 160, 330 130 S 470 110, 490 120 L 490 230 C 420 220, 380 250, 330 240 C 220 270, 120 200, -10 230 Z" fill="url(#vessel)" stroke="#e48a9a" stroke-width="3"/>
+  <g fill="#e05a72" opacity=".55"><ellipse cx="60" cy="185" rx="11" ry="6"/><ellipse cx="150" cy="205" rx="11" ry="6"/><ellipse cx="250" cy="200" rx="11" ry="6"/></g>
+  <g stroke="#1e3a8a" stroke-width="2" fill="none" stroke-dasharray="5 5" opacity=".45"><path d="M340 50 C 340 110, 384 110, 384 50"/><path d="M326 50 C 326 135, 398 135, 398 50"/><path d="M312 50 C 312 160, 412 160, 412 50"/></g>
+  <g transform="translate(362 8)"><path d="M-40 0 h22 v40 a18 18 0 0 0 36 0 v-40 h22 v40 a40 40 0 0 1 -80 0 z" fill="#4b5563"/><rect x="-40" y="0" width="22" height="16" fill="#a3162b"/><rect x="18" y="0" width="22" height="16" fill="#1e3a8a"/><text x="-29" y="12" font-size="13.8" fill="#fff" text-anchor="middle" font-weight="700">N</text><text x="29" y="12" font-size="13.8" fill="#fff" text-anchor="middle" font-weight="700">S</text></g>
+  <g><circle cx="400" cy="205" r="22" fill="url(#cell)"/><circle cx="440" cy="180" r="19" fill="url(#cell)"/><circle cx="445" cy="225" r="20" fill="url(#cell)"/><circle cx="370" cy="232" r="16" fill="url(#cell)"/><g fill="#7a1222" opacity=".7"><circle cx="400" cy="205" r="7"/><circle cx="440" cy="180" r="6"/><circle cx="445" cy="225" r="6"/><circle cx="370" cy="232" r="5"/></g></g>
+  <use href="#np" x="70" y="160"/><use href="#np" x="175" y="170"/><use href="#np" x="270" y="162"/><use href="#np" x="345" y="180"/>
+  <g fill="#f5b700"><circle cx="385" cy="180" r="3"/><circle cx="420" cy="200" r="3"/><circle cx="392" cy="228" r="3"/><circle cx="425" cy="214" r="2.5"/></g>
+  <g stroke="#059669" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M95 160 h22 m-6 -5 l6 5 -6 5"/><path d="M200 170 h22 m-6 -5 l6 5 -6 5"/><path d="M295 164 h22 m-6 -5 l6 5 -6 5"/></g>
+  <g><circle cx="22" cy="280" r="6" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="2 2"/><circle cx="140" cy="280" r="6" fill="url(#core)"/><circle cx="240" cy="280" r="4" fill="#f5b700"/><circle cx="352" cy="280" r="6" fill="url(#cell)"/></g>
+  <g font-size="15" fill="#1f2937"><text x="32" y="285">polymer shell</text><text x="150" y="285">Fe₃O₄ core</text><text x="250" y="285">drug</text><text x="364" y="285">tumour cells</text></g>
+</svg>

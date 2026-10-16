@@ -201,17 +201,22 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .pc .desc{display:none}
 @media (hover:none){.pc .desc{display:block;font-size:.8rem;color:var(--muted);margin-top:6px}}
 /* open PhD topics */
-.topics{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-.tp{position:relative;padding:24px 18px 22px;border-radius:20px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;transition:transform .3s;overflow:hidden}
-.tp:hover{transform:translateY(-6px)}
-.tp::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad)}
-.tp i{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1.15rem}
-.tp span{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--crim)}
-.tp h4{font-family:var(--f-head);font-size:.98rem;line-height:1.35}
+.topics{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.tp{grid-column:span 2;position:relative;background:#fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.tp:nth-child(4){grid-column:2/span 2}
+.tp:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(30,58,138,.2)}
+.tp .im{position:relative;aspect-ratio:8/5;overflow:hidden;border-bottom:1px solid var(--rule)}
+.tp .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.tp:hover .im img{transform:scale(1.05)}
+.tp .hd{display:flex;align-items:center;gap:12px}
+.tp .ic{flex-shrink:0;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:1rem;box-shadow:0 6px 16px rgba(30,58,138,.3)}
+.tp .bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.tp .no{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--crim)}
+.tp h4{font-family:var(--f-head);font-size:1.05rem;line-height:1.3}
+.tp p{font-size:.88rem;color:var(--muted)}
 .topics-note{text-align:center;color:var(--muted);font-size:.92rem;margin:-14px auto 26px;max-width:620px}
-@media (max-width:1100px){.topics{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.topics{grid-template-columns:1fr 1fr}}
-@media (max-width:440px){.topics{grid-template-columns:1fr}}
+@media (max-width:980px){.topics{grid-template-columns:1fr 1fr}.tp,.tp:nth-child(4){grid-column:auto}}
+@media (max-width:620px){.topics{grid-template-columns:1fr}}
 .join{margin-top:50px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:30px 34px;border-radius:24px;background:var(--grad);color:#fff;box-shadow:0 18px 40px rgba(30,58,138,.28)}
 .join h3{font-family:var(--f-head);font-size:1.4rem}
 .join p{opacity:.9;font-size:.92rem}
@@ -566,13 +571,13 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <article class="pc reveal"><div class="im"><img src="assets/img/saurabh.jpg" alt="Saurabh Kumar Dhavaj"><div class="ov">Docking and atomistic simulation of tirzepatide variants.</div></div><div class="bd"><h3>Saurabh Kumar Dhavaj</h3><p class="desc">Docking and atomistic simulation of tirzepatide variants.</p></div></article>
     </div>
     <h3 class="subt">Open research topics</h3>
-    <p class="topics-note">PhD topics available for upcoming research scholars.</p>
+    <p class="topics-note">PhD projects open to upcoming research scholars. Each combines hands-on experiments with modelling.</p>
     <div class="topics">
-      <article class="tp reveal"><i class="fas fa-magnet"></i><span>Topic 01</span><h4>Magnetic nanoparticles for drug delivery</h4></article>
-      <article class="tp reveal"><i class="fas fa-tower-broadcast"></i><span>Topic 02</span><h4>Magneto-dielectric ferrite composites for antenna substrates</h4></article>
-      <article class="tp reveal"><i class="fas fa-arrows-rotate"></i><span>Topic 03</span><h4>Perovskite oxygen carriers for chemical looping</h4></article>
-      <article class="tp reveal"><i class="fas fa-chart-area"></i><span>Topic 04</span><h4>Population balance and colloidal modelling of nanoparticle formation</h4></article>
-      <article class="tp reveal"><i class="fas fa-smog"></i><span>Topic 05</span><h4>Advanced nanomaterials for CO₂ capture and conversion</h4></article>
+      <article class="tp reveal"><div class="im"><img src="assets/img/topic-1.svg" alt="Illustration: Magnetic nanocarriers for targeted drug delivery" loading="lazy"></div><div class="bd"><div class="hd"><span class="ic"><i class="fas fa-magnet"></i></span><span class="no">Topic 01</span></div><h4>Magnetic nanocarriers for targeted drug delivery</h4><p>Design polymer-coated, shape-controlled iron oxide nanoparticles that carry anticancer drugs and can be steered to a tumour with an external magnet. The project covers synthesis, surface functionalisation, drug loading and release, and cellular uptake.</p></div></article>
+      <article class="tp reveal"><div class="im"><img src="assets/img/topic-2.svg" alt="Illustration: Magneto-dielectric ferrite composites for compact antennas" loading="lazy"></div><div class="bd"><div class="hd"><span class="ic"><i class="fas fa-tower-broadcast"></i></span><span class="no">Topic 02</span></div><h4>Magneto-dielectric ferrite composites for compact antennas</h4><p>Develop ferrite-based composites whose magnetic permeability matches their permittivity, so antennas can be made smaller without losing bandwidth. Grain size, composition and filler loading will be tuned to keep losses low at microwave frequencies.</p></div></article>
+      <article class="tp reveal"><div class="im"><img src="assets/img/topic-3.svg" alt="Illustration: Perovskite oxygen carriers for chemical looping" loading="lazy"></div><div class="bd"><div class="hd"><span class="ic"><i class="fas fa-arrows-rotate"></i></span><span class="no">Topic 03</span></div><h4>Perovskite oxygen carriers for chemical looping</h4><p>Engineer ABO₃ perovskites that give up and take back lattice oxygen in repeated cycles, enabling fuel conversion and hydrogen or syngas production with built-in CO₂ separation. Focus on doping for oxygen capacity, fast redox kinetics and long-term stability.</p></div></article>
+      <article class="tp reveal"><div class="im"><img src="assets/img/topic-4.svg" alt="Illustration: Population balance and colloidal modelling of nanoparticle formation" loading="lazy"></div><div class="bd"><div class="hd"><span class="ic"><i class="fas fa-chart-area"></i></span><span class="no">Topic 04</span></div><h4>Population balance and colloidal modelling of nanoparticle formation</h4><p>Build population balance, Monte Carlo and colloidal-interaction models that predict how nucleation, growth and aggregation set the final size and shape of nanoparticles. Models are tested against the lab’s own synthesis experiments.</p></div></article>
+      <article class="tp reveal"><div class="im"><img src="assets/img/topic-5.svg" alt="Illustration: Nanomaterials for CO₂ capture and conversion" loading="lazy"></div><div class="bd"><div class="hd"><span class="ic"><i class="fas fa-smog"></i></span><span class="no">Topic 05</span></div><h4>Nanomaterials for CO₂ capture and conversion</h4><p>Create porous and catalytic nanomaterials that capture CO₂ selectively and convert it into useful fuels and chemicals such as CO and methanol. The work links adsorption capacity and active sites to conversion efficiency.</p></div></article>
     </div>
     <div class="join reveal"><div><h3>Interested in nanoparticles? Come work with us.</h3><p>PhD positions are open. Apply through IIT Dharwad admissions.</p></div><a class="btn light" href="https://www.iitdh.ac.in/phd" target="_blank" rel="noopener"><i class="fas fa-paper-plane"></i>Apply now</a></div>
   </div>
