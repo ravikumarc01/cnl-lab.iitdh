@@ -452,11 +452,11 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
     <nav class="menu" id="menu" aria-label="Sections">
       <a href="#home" class="on"><i class="fas fa-home"></i>HOME</a>
       <a href="#research"><i class="fas fa-atom"></i>RESEARCH</a>
-      <a href="#facilities"><i class="fas fa-microscope"></i>FACILITIES</a>
       <a href="#pi"><i class="fas fa-user-tie"></i>PI</a>
       <a href="#people"><i class="fas fa-users"></i>PEOPLE</a>
       <a href="#publications"><i class="fas fa-book-open"></i>PUBLICATIONS</a>
       <a href="#projects"><i class="fas fa-hand-holding-dollar"></i>PROJECTS</a>
+      <a href="#facilities"><i class="fas fa-microscope"></i>FACILITIES</a>
       <a href="#gallery"><i class="fas fa-images"></i>GALLERY</a>
       <a href="#contact"><i class="fas fa-envelope"></i>CONTACT</a>
     </nav>
@@ -470,12 +470,12 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
     <a href="#home"><i class="fas fa-home"></i>Home</a>
     <a href="#about"><i class="fas fa-flask"></i>About</a>
     <a href="#research"><i class="fas fa-atom"></i>Research</a>
-    <a href="#facilities"><i class="fas fa-microscope"></i>Research facilities</a>
     <a href="#pi"><i class="fas fa-user-tie"></i>Principal Investigator</a>
     <a href="#people"><i class="fas fa-users"></i>People</a>
     <a href="#publications"><i class="fas fa-book-open"></i>Publications</a>
     <a href="#resources"><i class="fas fa-toolbox"></i>Resources</a>
     <a href="#projects"><i class="fas fa-hand-holding-dollar"></i>Projects</a>
+    <a href="#facilities"><i class="fas fa-microscope"></i>Research facilities</a>
     <a href="#teaching"><i class="fas fa-chalkboard-teacher"></i>Teaching</a>
     <a href="#gallery"><i class="fas fa-images"></i>Gallery</a>
     <a href="#news"><i class="fas fa-newspaper"></i>News</a>
@@ -557,16 +557,6 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <article class="rc reveal"><div class="im"><img src="assets/img/res-4.jpg" alt="TEM of assembled nanotriangles"><span class="ic"><i class="fas fa-circle-nodes"></i></span></div><div class="bd"><span class="no">Theme 04</span><h3>Colloids, interfaces and nanoparticle–membrane interactions</h3><p>Aggregation physics, polymer-mediated stability and Monte Carlo models of dispersion state and membrane engulfment of nanoparticles.</p></div></article>
       <article class="rc reveal"><div class="im"><img src="assets/img/res-5.jpg" alt="HR-TEM of nanocubes"><span class="ic"><i class="fas fa-dna"></i></span></div><div class="bd"><span class="no">Theme 05</span><h3>Computational chemistry for drug discovery</h3><p>Docking, molecular dynamics and in-silico screening: estrogen receptor-α inhibitors, SARS-CoV-2 receptor mimics and tirzepatide analogues.</p></div></article>
     </div>
-  </div>
-</section>
-
-<!-- FACILITIES -->
-<section class="sec alt" id="facilities">
-  <div class="wrap">
-    <div class="title reveal"><span class="kick">Infrastructure</span><h2>Research <span class="gt">facilities</span></h2></div>
-    <p class="fintro reveal">Our work draws on the shared research facilities of the Department of Chemical Engineering, IIT Dharwad, for synthesis, characterisation, separations and electrochemistry. <a href="https://cheme.iitdh.ac.in/facilities/research-facilities" target="_blank" rel="noopener">See the department facilities page <i class="fas fa-arrow-up-right-from-square"></i></a></p>
-    <div class="fchips" id="fchips" role="group" aria-label="Filter facilities by category"></div>
-    <div class="fgrid" id="fgrid"></div>
   </div>
 </section>
 
@@ -726,8 +716,18 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
   </div>
 </section>
 
+<!-- FACILITIES -->
+<section class="sec alt" id="facilities">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Infrastructure</span><h2>Research <span class="gt">facilities</span></h2></div>
+    <p class="fintro reveal">Our work draws on the shared research facilities of the Department of Chemical Engineering, IIT Dharwad, for synthesis, characterisation, separations and electrochemistry. <a href="https://cheme.iitdh.ac.in/facilities/research-facilities" target="_blank" rel="noopener">See the department facilities page <i class="fas fa-arrow-up-right-from-square"></i></a></p>
+    <div class="fchips" id="fchips" role="group" aria-label="Filter facilities by category"></div>
+    <div class="fgrid" id="fgrid"></div>
+  </div>
+</section>
+
 <!-- TEACHING -->
-<section class="sec alt" id="teaching">
+<section class="sec" id="teaching">
   <div class="wrap">
     <div class="title reveal"><span class="kick">Teaching</span><h2><span class="gt">Courses</span> taught</h2><p>Undergraduate and postgraduate courses taught by Prof. Ravikumar.</p></div>
     <div class="teach">
@@ -760,7 +760,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
 </section>
 
 <!-- GALLERY -->
-<section class="sec" id="gallery">
+<section class="sec alt" id="gallery">
   <div class="wrap">
     <div class="title reveal"><span class="kick">Gallery</span><h2>Events &amp; <span class="gt">outreach</span></h2></div>
     <div class="gal" id="gal"></div>
@@ -771,7 +771,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
 <dialog class="lb" id="lb"><button class="x" id="lbx" aria-label="Close">×</button><img id="lbi" alt=""><p id="lbc"></p></dialog>
 
 <!-- NEWS -->
-<section class="sec alt" id="news">
+<section class="sec" id="news">
   <div class="wrap">
     <div class="title reveal"><span class="kick">News</span><h2>Latest <span class="gt">updates</span></h2></div>
     <ul class="tl">
@@ -786,7 +786,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
 </section>
 
 <!-- CONTACT -->
-<section class="sec" id="contact">
+<section class="sec alt" id="contact">
   <div class="wrap">
     <div class="title reveal"><span class="kick">Contact</span><h2>Get in <span class="gt">touch</span></h2><p>Interested in nanoparticles? Come work with us.</p></div>
     <div class="contact">
@@ -820,8 +820,8 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
           <a href="https://scholar.google.com/citations?hl=en&amp;user=McmMUDcAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
           <a href="https://www.linkedin.com/in/ravikumar-c-b6a07531/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div></div>
-      <div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#pi">PI</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li></ul></div>
-      <div><h4>More</h4><ul><li><a href="#resources">Resources</a></li><li><a href="#projects">Projects</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#news">News</a></li></ul></div>
+      <div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#pi">PI</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li></ul></div>
+      <div><h4>More</h4><ul><li><a href="#resources">Resources</a></li><li><a href="#projects">Projects</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#news">News</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="mailto:ravikumar@iitdh.ac.in">ravikumar@iitdh.ac.in</a></li><li><a href="#contact">+91 836 230 9741 · Ext. 1095</a></li><li><a href="#contact">Chikkamalligawad, Dharwad 580 011</a></li></ul></div>
     </div>
     <div class="base"><span>© 2026 Colloids and Nanomaterials Lab, IIT Dharwad</span><a href="https://www.iitdh.ac.in" target="_blank" rel="noopener">iitdh.ac.in</a></div>
@@ -1022,7 +1022,7 @@ const cio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){cou
 if(!reduce)document.querySelectorAll('[data-n]').forEach(el=>cio.observe(el));
 
 /* highlight current section in nav */
-const ids=['home','about','research','facilities','pi','people','publications','resources','projects','teaching','gallery','news','contact'];
+const ids=['home','about','research','pi','people','publications','resources','projects','facilities','teaching','gallery','news','contact'];
 const navLinks=[...document.querySelectorAll('#menu a,#dnav a')];
 const nio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
 ids.forEach(id=>{const el=document.getElementById(id);if(el)nio.observe(el)});
