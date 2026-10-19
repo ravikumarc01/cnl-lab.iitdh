@@ -58,7 +58,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .menu a.on i{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .burger{display:none;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:1.3rem;width:44px;height:44px;border-radius:10px;cursor:pointer;transition:.3s}
 .burger:hover{background:rgba(255,255,255,.3);transform:rotate(90deg)}
-@media (max-width:1180px){.menu{display:none}.burger{display:grid;place-items:center}}
+@media (max-width:1300px){.menu{display:none}.burger{display:grid;place-items:center}}
 @media (max-width:520px){.navbar{padding:8px 16px}.brand .tile{width:48px;height:48px}.brand b{font-size:1rem}.brand small{font-size:.66rem}}
 
 /* drawer */
@@ -331,6 +331,27 @@ details.more[open] summary::after{transform:rotate(180deg)}
 
 a.sl{display:block;color:inherit;cursor:pointer}
 
+/* facilities */
+.fintro{max-width:760px;margin:-10px auto 26px;text-align:center;color:var(--muted)}
+.fintro a{color:var(--navy);font-weight:600}
+.fchips{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.fchips button{font:inherit;font-weight:600;font-size:.85rem;padding:9px 18px;border-radius:50px;border:2px solid var(--rule);background:#fff;color:var(--fg);cursor:pointer;transition:.25s}
+.fchips button small{opacity:.6;margin-left:3px}
+.fchips button:hover{border-color:var(--navy)}
+.fchips button.on{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(30,58,138,.25)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.fc{all:unset;box-sizing:border-box;cursor:zoom-in;display:flex;flex-direction:column;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.fc:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(30,58,138,.18)}
+.fc:focus-visible{outline:3px solid var(--gold)}
+.fc .im{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--tint)}
+.fc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.fc:hover img{transform:scale(1.06)}
+.fc .bd{display:flex;flex-direction:column;gap:4px;padding:14px 16px 18px}
+.fc .cat{font-size:.68rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--crim)}
+.fc b{font-family:var(--f-head);font-size:.95rem;line-height:1.35}
+.fc .md{font-size:.8rem;color:var(--muted)}
+@media (max-width:640px){.fgrid{grid-template-columns:1fr 1fr;gap:12px}.fc .bd{padding:10px 10px 12px}.fc b{font-size:.82rem}}
+
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
 .gal button{all:unset;cursor:zoom-in;position:relative;overflow:hidden;border-radius:16px;background:var(--tint)}
@@ -431,6 +452,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
     <nav class="menu" id="menu" aria-label="Sections">
       <a href="#home" class="on"><i class="fas fa-home"></i>HOME</a>
       <a href="#research"><i class="fas fa-atom"></i>RESEARCH</a>
+      <a href="#facilities"><i class="fas fa-microscope"></i>FACILITIES</a>
       <a href="#pi"><i class="fas fa-user-tie"></i>PI</a>
       <a href="#people"><i class="fas fa-users"></i>PEOPLE</a>
       <a href="#publications"><i class="fas fa-book-open"></i>PUBLICATIONS</a>
@@ -448,6 +470,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
     <a href="#home"><i class="fas fa-home"></i>Home</a>
     <a href="#about"><i class="fas fa-flask"></i>About</a>
     <a href="#research"><i class="fas fa-atom"></i>Research</a>
+    <a href="#facilities"><i class="fas fa-microscope"></i>Research facilities</a>
     <a href="#pi"><i class="fas fa-user-tie"></i>Principal Investigator</a>
     <a href="#people"><i class="fas fa-users"></i>People</a>
     <a href="#publications"><i class="fas fa-book-open"></i>Publications</a>
@@ -534,6 +557,16 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
       <article class="rc reveal"><div class="im"><img src="assets/img/res-4.jpg" alt="TEM of assembled nanotriangles"><span class="ic"><i class="fas fa-circle-nodes"></i></span></div><div class="bd"><span class="no">Theme 04</span><h3>Colloids, interfaces and nanoparticle–membrane interactions</h3><p>Aggregation physics, polymer-mediated stability and Monte Carlo models of dispersion state and membrane engulfment of nanoparticles.</p></div></article>
       <article class="rc reveal"><div class="im"><img src="assets/img/res-5.jpg" alt="HR-TEM of nanocubes"><span class="ic"><i class="fas fa-dna"></i></span></div><div class="bd"><span class="no">Theme 05</span><h3>Computational chemistry for drug discovery</h3><p>Docking, molecular dynamics and in-silico screening: estrogen receptor-α inhibitors, SARS-CoV-2 receptor mimics and tirzepatide analogues.</p></div></article>
     </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="sec alt" id="facilities">
+  <div class="wrap">
+    <div class="title reveal"><span class="kick">Infrastructure</span><h2>Research <span class="gt">facilities</span></h2></div>
+    <p class="fintro reveal">Our work draws on the shared research facilities of the Department of Chemical Engineering, IIT Dharwad, for synthesis, characterisation, separations, electrochemistry and microfluidics. <a href="https://cheme.iitdh.ac.in/facilities/research-facilities" target="_blank" rel="noopener">See the department facilities page <i class="fas fa-arrow-up-right-from-square"></i></a></p>
+    <div class="fchips" id="fchips" role="group" aria-label="Filter facilities by category"></div>
+    <div class="fgrid" id="fgrid"></div>
   </div>
 </section>
 
@@ -787,7 +820,7 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
           <a href="https://scholar.google.com/citations?hl=en&amp;user=McmMUDcAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
           <a href="https://www.linkedin.com/in/ravikumar-c-b6a07531/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div></div>
-      <div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#pi">PI</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li></ul></div>
+      <div><h4>Quick links</h4><ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#facilities">Facilities</a></li><li><a href="#pi">PI</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li></ul></div>
       <div><h4>More</h4><ul><li><a href="#resources">Resources</a></li><li><a href="#projects">Projects</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#news">News</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="mailto:ravikumar@iitdh.ac.in">ravikumar@iitdh.ac.in</a></li><li><a href="#contact">+91 836 230 9741 · Ext. 1095</a></li><li><a href="#contact">Chikkamalligawad, Dharwad 580 011</a></li></ul></div>
     </div>
@@ -863,6 +896,36 @@ const LIFE=[
  ['life-5-t.jpg','life-5.jpg','Lunch at Andhra Ruchilu, Presidency Hotel','A full banana-leaf meal: the highest-yield reaction of the week.','center 55%'],
  ['life-6-t.jpg','life-6.jpg','Jailer 2 movie outing','Nobody got jailed, but the lab work did get a day of parole.','center 45%']
 ];
+const FAC=[
+ ['fac-01.jpg','Thermogravimetric analyser (TGA)','Hitachi STA200','Characterisation'],
+ ['fac-02.jpg','Dynamic light scattering and zeta potential analyser','Malvern ZSU3200','Characterisation'],
+ ['fac-03.jpg','UV-Vis spectrophotometer','840-341500','Characterisation'],
+ ['fac-04.jpg','MemCast membrane casting system','MemSystems','Separation & membranes'],
+ ['fac-05.jpg','Multistage liquid–liquid extraction (LLE)','MS10-5','Separation & membranes'],
+ ['fac-06.jpg','Electrochemical workstation','','Electrochemistry'],
+ ['fac-07.jpg','Lyophilizer (freeze dryer)','Alpha 1-2 LSCbasic','Synthesis & reactors'],
+ ['fac-08.jpg','Online gas chromatograph with TCD and FID','','Characterisation'],
+ ['fac-09.jpg','Electrodialysis unit','','Separation & membranes'],
+ ['fac-10.jpg','Spray pyrolysis equipment','Holmarc HO-TH-04BT','Synthesis & reactors'],
+ ['fac-11.jpg','Refrigerated centrifuge','Eppendorf 5810 R','Synthesis & reactors'],
+ ['fac-12.jpg','Gas permeability tester','VAC-VBS','Separation & membranes'],
+ ['fac-13.jpg','In-situ Raman spectroscopy with electrochemical cell','','Electrochemistry'],
+ ['fac-14.jpg','Microwave synthesiser','CEM Discover 2.0','Synthesis & reactors'],
+ ['fac-15.jpg','Autoclave','','Synthesis & reactors'],
+ ['fac-16.jpg','High-temperature oven','','Synthesis & reactors'],
+ ['fac-17.jpg','Glass leaching reactor','','Synthesis & reactors'],
+ ['fac-18.jpg','High-pressure reactor','Parr Series 4540','Synthesis & reactors'],
+ ['fac-19.jpg','Isothermal titration calorimeter','MicroCal PEAQ-ITC','Characterisation'],
+ ['fac-20.jpg','HPLC system','Waters Arc HPLC','Characterisation'],
+ ['fac-21.jpg','High-speed camera','Phantom KT1240 (colour)','Microfluidics & imaging'],
+ ['fac-22.jpg','3D printer for microfluidics','CADworks3D ProFluidics 285D','Microfluidics & imaging'],
+ ['fac-23.jpg','Inverted microscope','Carl Zeiss Axio Observer 7','Microfluidics & imaging'],
+ ['fac-24.jpg','Rheometer','Anton Paar MCR 102e','Characterisation'],
+ ['fac-25.jpg','Boom arm stand','Camera boom arm mount','Microfluidics & imaging'],
+ ['fac-26.jpg','Motorised lab jack','Holmarc','Microfluidics & imaging'],
+ ['fac-27.jpg','Contact angle meter','Surface wettability analysis','Characterisation'],
+ ['fac-28.jpg','Microfluidic flow control','Fluigent Flow EZ','Microfluidics & imaging']
+];
 const GAL=[
  ['g-anrf-welcome.jpg','ANRF National Symposium on Smart Interfaces, IIT Dharwad, 9–10 October 2025'],
  ['g-anrf-talk.jpg','Prof. C. Ravikumar addressing the ANRF National Symposium'],
@@ -931,6 +994,17 @@ const life=document.getElementById('life');
 life.innerHTML=LIFE.map((g,i)=>'<button type="button" class="reveal" data-i="'+i+'"><img src="assets/img/'+g[0]+'" alt="'+esc(g[2])+'" loading="lazy" style="object-position:'+g[4]+'"><span><b>'+esc(g[2])+'</b><em>'+esc(g[3])+'</em></span></button>').join('');
 life.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=LIFE[b.dataset.i];openLB('assets/img/'+g[1],g[2]+': '+g[3])});
 
+/* facilities */
+(function(){
+  const grid=document.getElementById('fgrid'),chips=document.getElementById('fchips');
+  const cats=['All',...new Set(FAC.map(f=>f[3]))];
+  chips.innerHTML=cats.map((c,i)=>'<button type="button"'+(i?'':' class="on"')+' data-c="'+esc(c)+'">'+esc(c)+' <small>'+(i?FAC.filter(f=>f[3]===c).length:FAC.length)+'</small></button>').join('');
+  function draw(c){grid.innerHTML=FAC.map((f,i)=>[f,i]).filter(([f])=>c==='All'||f[3]===c).map(([f,i])=>'<button type="button" class="fc" data-i="'+i+'"><span class="im"><img src="assets/img/'+f[0]+'" alt="'+esc(f[1])+'" loading="lazy"></span><span class="bd"><span class="cat">'+esc(f[3])+'</span><b>'+esc(f[1])+'</b>'+(f[2]?'<span class="md">'+esc(f[2])+'</span>':'')+'</span></button>').join('')}
+  draw('All');
+  chips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;chips.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));draw(b.dataset.c)});
+  grid.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const f=FAC[b.dataset.i];openLB('assets/img/'+f[0],f[1]+(f[2]?' · '+f[2]:''))});
+})();
+
 /* gallery */
 const gal=document.getElementById('gal');
 gal.innerHTML=GAL.map((g,i)=>'<button type="button" class="reveal" data-i="'+i+'"><img src="assets/img/'+g[0]+'" alt="'+esc(g[1])+'" loading="lazy"><span>'+esc(g[1])+'</span></button>').join('');
@@ -953,7 +1027,7 @@ const cio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){cou
 if(!reduce)document.querySelectorAll('[data-n]').forEach(el=>cio.observe(el));
 
 /* highlight current section in nav */
-const ids=['home','about','research','pi','people','publications','resources','projects','teaching','gallery','news','contact'];
+const ids=['home','about','research','facilities','pi','people','publications','resources','projects','teaching','gallery','news','contact'];
 const navLinks=[...document.querySelectorAll('#menu a,#dnav a')];
 const nio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'});
 ids.forEach(id=>{const el=document.getElementById(id);if(el)nio.observe(el)});
