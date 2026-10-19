@@ -340,6 +340,10 @@ details.more[open] summary::after{transform:rotate(180deg)}
 .gal button:hover span,.gal button:focus-visible span{opacity:1;transform:none}
 @media (max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
 @media (hover:none){.gal span{opacity:1;transform:none;font-size:.72rem}}
+.gal.life{grid-template-columns:repeat(3,1fr);grid-auto-rows:260px}
+.gal.life button:nth-child(7n+1){grid-column:auto;grid-row:auto}
+.life-head{margin-top:70px}
+@media (max-width:860px){.gal.life{grid-template-columns:1fr 1fr;grid-auto-rows:170px}}
 dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
 dialog.lb::backdrop{background:rgba(10,12,30,.9)}
 dialog.lb img{max-width:100%;max-height:80vh;display:block;margin:0 auto;background:#fff;border-radius:10px}
@@ -723,6 +727,8 @@ dialog.lb .x{position:absolute;top:8px;right:8px;background:var(--grad);color:#f
   <div class="wrap">
     <div class="title reveal"><span class="kick">Gallery</span><h2>Events &amp; <span class="gt">outreach</span></h2></div>
     <div class="gal" id="gal"></div>
+    <div class="title reveal life-head"><span class="kick">Lab life</span><h2>Celebrations &amp; <span class="gt">team outings</span></h2></div>
+    <div class="gal life" id="life"></div>
   </div>
 </section>
 <dialog class="lb" id="lb"><button class="x" id="lbx" aria-label="Close">×</button><img id="lbi" alt=""><p id="lbc"></p></dialog>
@@ -845,6 +851,14 @@ const FIGS=[
  ['gd-5.jpg','Molecular docking workflow for estrogen receptor-α ligands','J. Mol. Liq. 2024','10.1016/j.molliq.2024.126209'],
  ['gd-6.jpg','Molecular dynamics workflow for protein–ligand complexes','J. Mol. Liq. 2024','10.1016/j.molliq.2024.126209']
 ];
+const LIFE=[
+ ['life-1.jpg','Team dinner at Hotel Royal Ritz','center 60%'],
+ ['life-2.jpg','Team dinner at Hotel Naveen, Unkal Lake','center 55%'],
+ ['life-3.jpg','Team dinner at Hotel Royal Ritz','center 80%'],
+ ['life-4.jpg','Santhosh and Poorvaja with Prof. Ravikumar at the Big Mishra live counter for dinner','center 60%'],
+ ['life-5.jpg','Outing for the Jailer 2 movie, with lunch at Andhra Ruchilu, Presidency Hotel','center 55%'],
+ ['life-6.jpg','Outing for the Jailer 2 movie, with lunch at Andhra Ruchilu, Presidency Hotel','center 45%']
+];
 const GAL=[
  ['g-anrf-welcome.jpg','ANRF National Symposium on Smart Interfaces, IIT Dharwad, 9–10 October 2025'],
  ['g-anrf-talk.jpg','Prof. C. Ravikumar addressing the ANRF National Symposium'],
@@ -907,6 +921,11 @@ renderPubs();
 
 /* resource tabs */
 document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>{x.classList.toggle('on',x===b);document.getElementById(x.dataset.t).hidden=x!==b})});
+
+/* lab life */
+const life=document.getElementById('life');
+life.innerHTML=LIFE.map((g,i)=>'<button type="button" class="reveal" data-i="'+i+'"><img src="assets/img/'+g[0]+'" alt="'+esc(g[1])+'" loading="lazy" style="object-position:'+g[2]+'"><span>'+esc(g[1])+'</span></button>').join('');
+life.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const g=LIFE[b.dataset.i];openLB('assets/img/'+g[0],g[1])});
 
 /* gallery */
 const gal=document.getElementById('gal');
